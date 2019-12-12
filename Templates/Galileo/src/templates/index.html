@@ -1,0 +1,54 @@
+{% extends "includes/skeleton_archive.html" %}
+
+{% block title %}{{ fp(config.site_name) }}{% endblock %}
+{% block og_title %}{{ fp(config.site_name) }}{% endblock %}
+{% block og_description %}{{ fp(config.description) }}{% endblock %}
+{% block og_url %}{{ Router.gen_permalink('index', '', current_page) }}{% endblock %}
+{% block twitter_title %}{{ fp(config.site_name) }}{% endblock %}
+
+{% block more_section %}
+
+<section id="ga-post_list" class="ga-section" data-title="Posts">
+    <ul>
+        {% for content in content_list %}
+        <li>
+            <article class="yue">
+                <h1>{{ content.meta['title'] }}</h1>
+                {% if content.meta['showfull'] %}
+                    {{ content.parsed }}
+                {% else %}
+                    <blockquote>{{ content.excerpt }}</blockquote>
+                {% endif %}
+                <footer>
+                    <span class="ga-read_more"><a class="ga-highlight" href="{{ Router.gen_permalink_by_content(content) }}">Read More</a></span>
+                    <time class="ga-mono">
+                        {{ content.meta['date'].format("YYYY-MM-DD") }}
+                    </time>
+                </footer>
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="ga-section ga-mono" id="ga-pager">
+    {% if current_page > 1 %}
+        <a prev class="ga-highlight" href="{{ Router.gen_permalink('index', '', current_page-1) }}">Prev</a>
+    {% endif %}
+    <span>Page {{ current_page }} of {{ max_pages }}</span>
+    {% if current_page < max_pages %}
+        <a next class="ga-highlight" href="{{ Router.gen_permalink('index', '', current_page+1) }}">Next</a>
+    {% endif %}
+</section>
+
+<section id="ga-external_links" class="ga-section" data-title="Projects">
+    <ul>
+        {% for item in config.external_links %}
+        <li>
+            <a class="ga-highlight" target="_blank" href="{{ fp(item['url']) }}">{{ fp(item['name']) }}</a>：{{ fp(item['brief']) }}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock more_section %}

@@ -1,0 +1,16 @@
+$yellow: #FFCA27;
+$red: #FF6238;
+$black: #333333;
+$faded-black: rgba($color: $black, $alpha: 0.9);
+$faded-black-light: rgba($color: $black, $alpha: 0.6);
+
+$animationTimingFunc: cubic-bezier(.25,.46,.45,.94);
+
+$ga-font-sans: -apple-system, system-ui, sans-serif;
+$ga-font-mono: 'Fira Code', $ga-font-sans;
+$contentLineHeight: 1.7;
+
+$mainWidth: 800px;
+$mainPadding: 20px;
+
+$breakSmall: 767.5px;

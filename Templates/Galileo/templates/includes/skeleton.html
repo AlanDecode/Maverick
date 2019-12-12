@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="{{ config.language }}">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="{{ ','.join(config.key_words) }}" />
+    <meta name="generator" content="Maverick 1.0" />
+    <meta name="template" content="Galileo" />
+    <link rel="alternate" type="application/rss+xml" title="{{ fp(config.site_name) }} &raquo; RSS 2.0" href="{{ fp(config.site_prefix) }}feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="{{ fp(config.site_name) }} &raquo; ATOM 1.0" href="{{ fp(config.site_prefix) }}feed/atom/index.xml" />
+    <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/galileo-2c6cb4b918.css">
+    <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/ExSearch/ExSearch-182e5a8868.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "{{ fp(config.site_prefix) + search_cache_hash }}.json"
+        }
+    </script>
+    {% block head %}{% endblock %}
+
+    {{ fp(config.head_addon) }}
+    </head>
+    
+    <body>
+        <div class="container">
+            <header id="ga-header">
+                <div first>
+                    <aside id="ga-logo">
+                        <a href="{{ fp(config.site_prefix) }}" target="_self">
+                            <img src="{{ fp(config.site_logo) }}" alt="{{ fp(config.site_name) }}">
+                        </a>
+                    </aside>
+                    <aside id="ga-nav">
+                        <h1 class="brand">{{ fp(config.site_name) }}</h1>
+                        <nav>
+                            {{ build_navs(config.nav) }}
+                        </nav>
+                    </aside>
+                </div>
+                <div second>
+                    <p>{{ fp(config.description) }}</p>
+                    <p class="ga-mono">
+                        Catch me: {{ build_links(config.social_links) }}
+                    </p>
+                </div>
+            </header>
+            {% block main %}{% endblock %}
+            <footer class="ga-mono" id="ga-footer">
+                <section>
+                    <span id="ga-uptime"></span>
+                    <span class="brand">{{ fp(config.site_name) }}</span>
+                </section>
+                <section>
+                    <p>Copyright © {{ moment.now().format('%Y') }} {{ fp(config.author) }}</p>
+                    <p>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Galileo</a></p>
+                    {{ fp(config.footer_addon) }}
+                </section>
+                <script>
+                    var site_build_date = "{{ fp(config.site_build_date) }}"
+                </script>
+                <script src="{{ fp(config.site_prefix) }}assets/galileo-a1d6cd30a4.js"></script>
+            </footer>
+        </div>
+        
+        
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div> 
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ fp(config.site_prefix) }}assets/ExSearch/jquery.min.js"></script>
+    <script src="{{ fp(config.site_prefix) }}assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+
+    {{ fp(config.body_addon) }}
+    </body>
+</html>

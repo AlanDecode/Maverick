@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	
+    
+{% for page in page_list %}
+    <url>
+        <loc>{{ Router.gen_permalink_by_content(page) }}</loc>
+        <lastmod>{{ page.get_meta('date').format('YYYY-MM-DD') }}</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+{% endfor %}
+{% for post in post_list %}
+    <url>
+        <loc>{{ Router.gen_permalink_by_content(post) }}</loc>
+        <lastmod>{{ post.get_meta('date').format('YYYY-MM-DD') }}</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
+{% endfor %}
+</urlset>

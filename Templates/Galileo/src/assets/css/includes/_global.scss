@@ -1,0 +1,87 @@
+/*
+Global elements
+*/
+
+#ga-header {
+    margin: 4rem 0;
+    div[first] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.9rem;
+        aside#ga-logo {
+            a {
+                position: relative;
+                display: block;
+                width: 60px;
+                height: 60px;
+                margin-right: 1rem;
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        aside#ga-nav {
+            flex: 1;
+            h1 {
+                font-size: 1.7rem;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+            }
+            nav {
+                a {
+                    font-size: 0.9rem;
+                    color: $faded-black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    div[second] {
+        p {
+            line-height: $contentLineHeight;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: $faded-black;
+            a {
+                color: inherit
+            }
+        }
+    }
+}
+
+#ga-footer {
+    font-size: 0.95rem;
+    line-height: $contentLineHeight;
+    color: $faded-black;
+    section:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border: 1px solid $faded-black-light;
+        border-left: none;
+        border-right: none;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        padding: 0.2rem 0;
+    }
+    section:nth-child(2) {
+        text-align: center;
+        p {
+            margin: 0.05rem 0;
+        }
+        margin-bottom: 2rem;
+    }
+}
+
+:not(.dplayer) a.ga-highlight {
+    @include a-highlight()
+}
+
+.bili-player {
+    width: 100%;
+    border: 2px solid rgba(0,0,0,.1);
+}

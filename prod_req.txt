@@ -1,0 +1,8 @@
+Jinja2
+moment
+mistune==0.8.4
+pygments
+Pillow
+feedgen
+pyyaml
+chardet

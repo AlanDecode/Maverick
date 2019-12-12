@@ -1,0 +1,53 @@
+{% extends "includes/skeleton_content.html" %}
+
+{% block more_section %}
+<section id="ga-content_pager">
+{% if not content_next is none %}
+    <div class="next">
+        <a class="ga-highlight" href="{{ Router.gen_permalink_by_content(content_next) }}">{{ content_next.get_meta('title') }}</a>
+        <p class="yue">{{ content_next.excerpt }}</p>
+    </div>
+{% else %}
+    <div class="next">
+        <h3>No More</h3>
+        <p class="yue">This is the latest one.</p>
+    </div>
+{% endif %}
+{% if not content_prev is none %}
+    <div class="prev">
+        <a class="ga-highlight" href="{{ Router.gen_permalink_by_content(content_prev) }}">{{ content_prev.get_meta('title') }}</a>
+        <p class="yue">{{ content_prev.excerpt }}</p>
+    </div>
+{% else %}
+    <div class="prev">
+        <h3>No More</h3>
+        <p class="yue">This is the oldest one.</p>
+    </div>
+{% endif %}
+</section>
+{% endblock more_section %}
+
+{% block more_content -%}
+<div id="ga-tags">
+    {% for tag in content.get_meta('tags') %}
+    <span class="ga-tag">
+        <a class="ga-highlight" href="{{ Router.gen_permalink('tag', tag, 1) }}">#{{- tag -}}</a>
+    </span>
+    {% endfor %}
+</div>
+
+<!--katex-->
+<link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/katex.min.css">
+<script defer src="{{ fp(config.site_prefix) }}assets/katex.min.js"></script>
+<script>
+mathOpts = {
+    delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+    ]
+};
+</script>
+<script defer src="{{ fp(config.site_prefix) }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+{%- endblock more_content %}

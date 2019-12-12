@@ -34,12 +34,12 @@ We are creating a world where anyone, anywhere may express his or her beliefs, n
 
 ## Inline elements
 
-**Bold**£¬*Italic*£¬~~Strikethrough~~£¬[Link](https://www.imalan.cn)[^Home page for AlanDecode]¡£
+**Bold**ï¼Œ*Italic*ï¼Œ~~Strikethrough~~ï¼Œ[Link](https://www.imalan.cn)[^Home page for AlanDecode]ã€‚
 
 ## Blockquote and nested blockquote
 
-> °²µÃ¹ãÏÃÇ§Íò¼ä£¬´ó±ÓÌìÏÂº®Ê¿¾ã»¶ÑÕ£¡·çÓê²»¶¯°²ÈçÉ½¡£
-> > ÎØºô£¡ºÎÊ±ÑÛÇ°Í»Ø£¼û´ËÎÝ£¬ÎáÂ®¶ÀÆÆÊÜ¶³ËÀÒà×ã£¡
+> å®‰å¾—å¹¿åŽ¦åƒä¸‡é—´ï¼Œå¤§åº‡å¤©ä¸‹å¯’å£«ä¿±æ¬¢é¢œï¼é£Žé›¨ä¸åŠ¨å®‰å¦‚å±±ã€‚
+> > å‘œå‘¼ï¼ä½•æ—¶çœ¼å‰çªå…€è§æ­¤å±‹ï¼Œå¾åºç‹¬ç ´å—å†»æ­»äº¦è¶³ï¼
 
 ## Code
 
@@ -63,12 +63,12 @@ int main(int argc , char** argv){
 
 ### Ordered List
 
-1. ´ò¿ª±ùÏä
-    1. ÓÒÊÖ·ÅÔÚ±ùÏäÃÅÀ­ÊÖÉÏ
-    2. ×óÊÖ·ö×¡±ùÏäÖ÷Ìå
-    3. ÓÒÊÖÏòºóÓÃÁ¦
-2. °Ñ´óÏó·Å½ø±ùÏä
-3. ¹ØÉÏ±ùÏä
+1. æ‰“å¼€å†°ç®±
+    1. å³æ‰‹æ”¾åœ¨å†°ç®±é—¨æ‹‰æ‰‹ä¸Š
+    2. å·¦æ‰‹æ‰¶ä½å†°ç®±ä¸»ä½“
+    3. å³æ‰‹å‘åŽç”¨åŠ›
+2. æŠŠå¤§è±¡æ”¾è¿›å†°ç®±
+3. å…³ä¸Šå†°ç®±
 
 ## Horizontal rule
 

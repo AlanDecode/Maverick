@@ -182,11 +182,6 @@ def dump_log():
     json_path = './tmp/used_imgs.json'
     sizeinfo_json_path = './cached_imgs/sizeinfo.json'
 
-    if not os.path.exists(os.path.dirname(json_path)):
-        os.makedirs(os.path.dirname(json_path))
-    if not os.path.exists(os.path.dirname(sizeinfo_json_path)):
-        os.makedirs(os.path.dirname(sizeinfo_json_path))
-
     safe_write(json_path, json.dumps(list(g_used_imgs), indent=1))
     safe_write(sizeinfo_json_path, json.dumps(
         g_sizeinfo_cache, indent=1))

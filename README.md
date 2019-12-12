@@ -14,7 +14,7 @@ Pull requests are surely welcome. If you have any questions or suggestions, plea
 
 ## Usage
 
-Maverick is built with modern Python, currently at least **Python 3.6** is required, make sure you have it installed on your machine.
+Maverick is built with modern Python, currently at least **Python 3.5** is required, make sure you have it installed on your machine.
 
 ### Install
 

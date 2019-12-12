@@ -20,7 +20,7 @@ class Color(Enum):
 
 
 def print_color(text: str, fg: Color = Color.BLACK.value, end='\n'):
-    print(f'\033[{fg}m{text}\033[0m', end=end)
+    print('\033[%sm%s\033[0m' % (fg, text), end=end)
 
 def logged_func(delim='\n'):
     def inner(func):

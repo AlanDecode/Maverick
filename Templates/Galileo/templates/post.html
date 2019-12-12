@@ -9,8 +9,8 @@
     </div>
 {% else %}
     <div class="next">
-        <h3>No More</h3>
-        <p class="yue">This is the latest one.</p>
+        <h3>{{ tr('No More') }}</h3>
+        <p class="yue">{{ tr('This is the latest one.') }}</p>
     </div>
 {% endif %}
 {% if not content_prev is none %}
@@ -20,8 +20,8 @@
     </div>
 {% else %}
     <div class="prev">
-        <h3>No More</h3>
-        <p class="yue">This is the oldest one.</p>
+        <h3>{{ tr('No More') }}</h3>
+        <p class="yue">{{ tr('This is the oldest one.') }}</p>
     </div>
 {% endif %}
 </section>

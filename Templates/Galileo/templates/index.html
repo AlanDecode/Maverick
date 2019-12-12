@@ -20,7 +20,7 @@
                     <blockquote>{{ content.excerpt }}</blockquote>
                 {% endif %}
                 <footer>
-                    <span class="ga-read_more"><a class="ga-highlight" href="{{ Router.gen_permalink_by_content(content) }}">Read More</a></span>
+                    <span class="ga-read_more"><a class="ga-highlight" href="{{ Router.gen_permalink_by_content(content) }}">{{ tr('Read More') }}</a></span>
                     <time class="ga-mono">
                         {{ content.meta['date'].format("YYYY-MM-DD") }}
                     </time>
@@ -41,7 +41,7 @@
     {% endif %}
 </section>
 
-<section id="ga-external_links" class="ga-section" data-title="Projects">
+<section id="ga-external_links" class="ga-section" data-title="Links">
     <ul>
         {% for item in config.external_links %}
         <li>

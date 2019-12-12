@@ -121,14 +121,14 @@ Note: You can access other options by `${option_name}`. For example `${site_pref
 | `author_homepage` | `/`                                     | Author's homepage.                                           |
 | `description`     | `A marvelous site powered by Maverick!` | Description of your site.                                    |
 | `keywords`        | -                                       | Four or five keywords about your site.                       |
-| `external_links`  | -                                       | Will be used in `Projects` section on home page.             |
+| `external_links`  | -                                       | Will be used in `Links` section on home page.             |
 | `nav`             | -                                       | Will be used to generate navigations behind site title.      |
 | `social_links`    | -                                       | Will be used to generate social links behind site title.     |
 | `valine`          | -                                       | Maverick now supports Valine as its comment system. Please refer to [Comments](#comments) for more information. |
 | `head_addon`      | -                                       | Content here will be added to `<head>` tag of generated HTMLs, you can put some `meta` tag here, or use `<link>` and `<script>` to import custom CSS and JavaScript files. |
 | `footer_addon`    | -                                       | Content here will be added to `<footer>` tag. You can add some additional info here. |
 | `body_addon`      | -                                       | Content here will be added to `<body>` tag, external JavaScripts and can be put here. |
-| `language`        | `zh-CN`                                 | Site language.                                               |
+| `language`        | `english`                                 | Site language.                                               |
 
 ## Images and Static Assets
 

@@ -25,7 +25,7 @@ class Config(object):
     author_homepage = "https://www.imalan.cn"
     description = "This is Maverick, a static blog generator built with Python. Theme Galileo."
     key_words = ["Maverick", "AlanDecode", "Galileo", "blog"]
-    language = 'zh-CN'
+    language = 'english'
     external_links = [
         {
             "name": "AlanDecode/Maverick",
@@ -106,3 +106,13 @@ g_conf.build_dir = os.getenv("build_dir", g_conf.build_dir)
 g_conf.template = os.getenv("template", g_conf.template)
 g_conf.index_page_size = int(os.getenv("index_page_size", g_conf.index_page_size))
 g_conf.archives_page_size = int(os.getenv("archives_page_size", g_conf.archives_page_size))
+g_conf.fetch_remote_imgs = bool(os.getenv("fetch_remote_imgs", g_conf.fetch_remote_imgs))
+
+g_conf.site_name = os.getenv("site_name", g_conf.site_name)
+g_conf.site_logo = os.getenv("site_logo", g_conf.site_logo)
+g_conf.site_build_date = os.getenv("site_build_date", g_conf.site_build_date)
+g_conf.author = os.getenv("author", g_conf.author)
+g_conf.email = os.getenv("email", g_conf.email)
+g_conf.author_homepage = os.getenv("author_homepage", g_conf.author_homepage)
+g_conf.description = os.getenv("description", g_conf.description)
+g_conf.language = os.getenv("language", g_conf.language)

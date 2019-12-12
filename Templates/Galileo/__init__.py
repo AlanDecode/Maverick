@@ -7,6 +7,8 @@ Default theme for Maverick
 import re
 import os
 import config
+from Maverick.Utils import tr
+
 
 static_files = {
     "assets": "assets",
@@ -24,7 +26,7 @@ def build_navs(navs):
     fp = filterPlaceholders
     list = ['<a href="%s" target="%s">%s</a>'
             % (fp(item['url']), fp(item['target']), fp(item['name'])) for item in navs]
-    list.append('<a href="#" target="_self" class="search-form-input">Search</a>')
+    list.append('<a href="#" target="_self" class="search-form-input">%s</a>' % tr('Search'))
     return ' · '.join(list)
 
 

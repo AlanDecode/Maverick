@@ -44,7 +44,7 @@
                 <div second>
                     <p>{{ fp(config.description) }}</p>
                     <p class="ga-mono">
-                        Catch me: {{ build_links(config.social_links) }}
+                        {{ tr('Catch me: ') -}}{{- build_links(config.social_links) }}
                     </p>
                 </div>
             </header>

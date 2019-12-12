@@ -5,8 +5,9 @@ import shutil
 import codecs
 import hashlib
 import chardet
+import json
+import config
 from enum import Enum
-
 
 class Color(Enum):
     BLACK = 30
@@ -76,3 +77,17 @@ def gen_hash(str):
 def unify_joinpath(left, right):
     path = os.path.join(left, right)
     return path.replace('\\', '/')
+
+g_translation = None
+
+def tr(str, locale="english"):
+    """translation support
+
+    translate str according to translation file
+    """
+    global g_translation
+    if g_translation is None:
+        path = unify_joinpath('./locale', config.g_conf.language+".json")
+        g_translation = json.loads(safe_read(path) or '{}')
+
+    return g_translation.get(str, str)

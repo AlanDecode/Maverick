@@ -9,6 +9,7 @@ import json
 import config
 from enum import Enum
 
+
 class Color(Enum):
     BLACK = 30
     RED = 31
@@ -23,6 +24,7 @@ class Color(Enum):
 def print_color(text: str, fg: Color = Color.BLACK.value, end='\n'):
     print('\033[%sm%s\033[0m' % (fg, text), end=end)
 
+
 def logged_func(delim='\n'):
     def inner(func):
         def wrapper(*args, **kwargs):
@@ -31,6 +33,7 @@ def logged_func(delim='\n'):
             log_end()
         return wrapper
     return inner
+
 
 def copytree(src, dst, syamlinks=False, ignore=None):
     for item in os.listdir(src):
@@ -61,11 +64,16 @@ def safe_write(path, content, codec="utf-8"):
 def safe_read(path):
     if not os.path.exists(path):
         return ""
-
-    with open(path, 'rb') as f:
-        content = f.read()
-        encoding = chardet.detect(content)['encoding'] or 'utf-8'
-        return content.decode(encoding=encoding)
+    
+    # utf-8 is prefered
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except UnicodeDecodeError:
+        with open(path, 'rb') as f:
+            content = f.read()
+            encoding = chardet.detect(content)['encoding'] or 'utf-8'
+            return content.decode(encoding=encoding)
 
 
 def gen_hash(str):
@@ -78,7 +86,9 @@ def unify_joinpath(left, right):
     path = os.path.join(left, right)
     return path.replace('\\', '/')
 
+
 g_translation = None
+
 
 def tr(str, locale="english"):
     """translation support

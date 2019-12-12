@@ -63,7 +63,7 @@ def safe_read(path):
 
     with open(path, 'rb') as f:
         content = f.read()
-        encoding = chardet.detect(content)['encoding']
+        encoding = chardet.detect(content)['encoding'] or 'utf-8'
         return content.decode(encoding=encoding)
 
 

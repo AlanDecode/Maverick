@@ -1,6 +1,4 @@
-# Maverick
-
-> 🏄‍ Go My Own Way.
+![](https://raw.githubusercontent.com/AlanDecode/Maverick/master/banner.png)
 
 [![](https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square)](https://alandecode.github.io/Maverick/) [![build status](https://img.shields.io/travis/AlanDecode/Maverick/master.svg?style=flat-square)](https://travis-ci.org/AlanDecode/Maverick) ![](https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square)
 

@@ -141,7 +141,7 @@ class MathInlineMixin(object):
         self.rules.math = re.compile(r'^\$(.+?)\$')
         self.default_rules.insert(0, 'math')
         self.rules.text = re.compile(
-            r'^[\s\S]+?(?=[\\<!\[_*`~\$]|https?://| {2,}\n|$)')
+            r'^[\s\S]+?(?=[\\<!\[_*`~\$]|https?://| {2,}\n|\{\{|$)')
 
     def output_math(self, m):
         return self.renderer.math(m.group(1))

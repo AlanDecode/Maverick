@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
         var els = document.getElementsByTagName('a');
         for (var index = 0; index < els.length; index++) {
             var element = els[index];
-            target = element.getAttribute('target');
+            var target = element.getAttribute('target');
             if (typeof target === 'undefined' || (target != '' && target != '_self')) {
                 if (element.host != domain) {
                     element.setAttribute('target', '_blank');

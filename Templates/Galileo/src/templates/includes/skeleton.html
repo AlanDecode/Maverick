@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/ExSearch/ExSearch-182e5a8868.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <script>
+        (function(){
+            if(/windows/i.test(navigator.userAgent)){
+                document.getElementsByTagName('html')[0].classList.add('windows');
+            }
+        })();
         var ExSearchConfig = {
             root: "",
             api: "{{ fp(config.site_prefix) + search_cache_hash }}.json"

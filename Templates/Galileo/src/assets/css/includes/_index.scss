@@ -2,7 +2,7 @@
 .ga-section {
     position: relative;
     margin-bottom: 5rem;
-    padding-top: 4.5rem;
+    padding-top: 2.5rem;
     &::before {
         display: block;
         content: "";
@@ -11,16 +11,17 @@
         background: $yellow;
         position: absolute;
         left: 0;
-        top: 0;
+        top: 4px;
     }
     main > &::after {
         content: attr(data-title);
         font-family: $ga-font-mono;
         position: absolute;
-        left: 0;
-        top: 2rem;
+        left: 2rem;
+        top:0;
         font-size: 2rem;
         font-weight: bold;
+        line-height: 1;
     }
     &#ga-post_list {
         margin-bottom: 4rem;
@@ -57,7 +58,7 @@
             list-style: none;
             padding: 0;
             li {
-                margin-bottom: 3rem;
+                margin-bottom: 2rem;
             }
             h1 {
                 font-size: 1.35rem;
@@ -90,7 +91,7 @@
         }
     }
     &#ga-archive_list {
-        padding-top: 6rem;
+        padding-top: 3rem;
         ul li {
             margin-bottom: 1.75rem;
             display: flex;

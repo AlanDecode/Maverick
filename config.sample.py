@@ -23,7 +23,7 @@ class Config(object):
     author = "AlanDecode"
     email = "hi@imalan.cn"
     author_homepage = "https://www.imalan.cn"
-    description = "This is Maverick, a static blog generator built with Python. Theme Galileo."
+    description = "This is Maverick, Theme Galileo."
     key_words = ["Maverick", "AlanDecode", "Galileo", "blog"]
     language = 'english'
     external_links = [

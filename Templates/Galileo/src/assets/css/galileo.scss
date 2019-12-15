@@ -12,11 +12,8 @@
 }
 
 html {
-    font-size: 18px;
+    font-size: 16px;
     background: #fff;
-    &.windows {
-        font-size: 16px;
-    }
 }
 
 body {
@@ -29,6 +26,23 @@ body {
         margin-right: auto;
         padding-left: $mainPadding;
         padding-right: $mainPadding;
+        .wrapper {
+            order: -1;
+            flex: 1;
+        }
+    }
+
+    @media screen and (min-width: $breakMiddle) {
+        .container {
+            max-width: 845px;
+            display: flex;
+            flex-direction: row;
+            .wrapper {
+                margin-top: 4rem;
+                max-width: 623px;
+                min-width: 623px;
+            }
+        }
     }
 }
 

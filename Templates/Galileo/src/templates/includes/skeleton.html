@@ -26,6 +26,9 @@
     </head>
     
     <body>
+        {% if config.background_img != "" %}
+            <div id="bg" style="background-image: url({{ fp(config.background_img) }})"></div>
+        {% endif %}
         <div class="container">
             <header id="ga-header">
                 <div first>

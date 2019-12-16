@@ -11,7 +11,7 @@
     <meta name="template" content="Galileo" />
     <link rel="alternate" type="application/rss+xml" title="{{ fp(config.site_name) }} &raquo; RSS 2.0" href="{{ fp(config.site_prefix) }}feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="{{ fp(config.site_name) }} &raquo; ATOM 1.0" href="{{ fp(config.site_prefix) }}feed/atom/index.xml" />
-    <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/galileo-5806afa8f3.css">
+    <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/galileo-9b800574bb.css">
     <link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/ExSearch/ExSearch-182e5a8868.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <script>
@@ -26,6 +26,9 @@
     </head>
     
     <body>
+        {% if config.background_img != "" %}
+            <div id="bg" style="background-image: url({{ fp(config.background_img) }})"></div>
+        {% endif %}
         <div class="container">
             <header id="ga-header">
                 <div first>

@@ -26,6 +26,7 @@ class Config(object):
     description = "This is Maverick, Theme Galileo."
     key_words = ["Maverick", "AlanDecode", "Galileo", "blog"]
     language = 'english'
+    background_img = '${site_prefix}bg/The_Great_Wave_off_Kanagawa.jpg'
     external_links = [
         {
             "name": "AlanDecode/Maverick",

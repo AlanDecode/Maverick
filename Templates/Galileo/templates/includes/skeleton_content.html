@@ -50,7 +50,7 @@
     {% block more_section %}{% endblock more_section %}
 
     {% if config.valine['enable'] and content.get_meta('comment') %}
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
         <div id="vcomments"></div>
         <script>
         new Valine({

@@ -96,6 +96,7 @@ Global elements
         top: 4rem;
         height: max-content;
         max-width: 137px;
+        width: 137px;
         margin-left: 45px;
         padding-left: 35px;
         border-left: 2px dotted rgba(0,0,0,.05);
@@ -103,11 +104,8 @@ Global elements
             flex-direction: column;
             align-items: flex-start;
         }
-        div[first] aside#ga-logo a {
-            margin-right: 0;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 1rem;
+        div[first] aside#ga-logo {
+            display: none;
         }
         div[first] aside#ga-brand {
             display: flex;

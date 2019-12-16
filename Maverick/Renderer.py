@@ -42,7 +42,7 @@ class Renderer:
             return r.sub('', text)
 
         excerpt = content.get_meta("excerpt")
-        if excerpt != "":
+        if excerpt != "" and excerpt != "None":
             return excerpt
 
         # find <!--more-->

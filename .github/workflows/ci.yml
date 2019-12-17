@@ -23,6 +23,8 @@ jobs:
         pip install -r prod_req.txt
 
     - name: Build
+      env:
+        site_prefix: https://alandecode.github.io/Maverick/
       run: |
         python build.py
 

@@ -37,8 +37,8 @@
 </div>
 
 <!--katex-->
-<link rel="stylesheet" href="{{ fp(config.site_prefix) }}assets/katex.min.css">
-<script defer src="{{ fp(config.site_prefix) }}assets/katex.min.js"></script>
+<link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/katex.min.css">
+<script defer src="{{ Router.gen_static_file_prefix() }}assets/katex.min.js"></script>
 <script>
 mathOpts = {
     delimiters: [
@@ -49,5 +49,5 @@ mathOpts = {
     ]
 };
 </script>
-<script defer src="{{ fp(config.site_prefix) }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+<script defer src="{{ Router.gen_static_file_prefix() }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 {%- endblock more_content %}

@@ -7,6 +7,22 @@ class Router:
         """
         self.config = conf
 
+    def gen_static_file_prefix(self):
+        """Generate prefix for static file
+
+        for files including:
+            /assets/*
+            /archives/assets/*
+        
+        return ${site_prefix} by default, however, if configured to use
+        jsDelivr, then corresponding path will be used
+        """
+        if (self.config.enable_jsdelivr['enabled']):
+            return "https://cdn.jsdelivr.net/gh/%s/" % \
+                self.config.enable_jsdelivr["repo"]
+        else:
+            return self.config.site_prefix
+
     def gen_permalink_by_meta(self, meta):
         link, _ = self.gen_by_meta(meta)
         return link

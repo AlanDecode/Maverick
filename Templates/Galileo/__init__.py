@@ -6,7 +6,7 @@ Default theme for Maverick
 
 import re
 import os
-import config
+from Maverick.Config import g_conf
 from Maverick.Utils import tr
 
 
@@ -58,7 +58,7 @@ def filterPlaceholders(content):
         if value is None:
             # find in config
             try:
-                value = getattr(config.g_conf, key)
+                value = getattr(g_conf, key)
             except AttributeError:
                 pass
 

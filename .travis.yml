@@ -5,7 +5,6 @@ install:
   - make clean
   - make dep
 script:
-  - cp ./config.sample.py ./config.py
   - make all
 after_script:
   ## Push to preview site

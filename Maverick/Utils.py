@@ -6,7 +6,7 @@ import codecs
 import hashlib
 import chardet
 import json
-import config
+from .Config import g_conf
 from enum import Enum
 
 
@@ -97,7 +97,7 @@ def tr(str, locale="english"):
     """
     global g_translation
     if g_translation is None:
-        path = unify_joinpath('./locale', config.g_conf.language+".json")
+        path = unify_joinpath('./locale', g_conf.language+".json")
         g_translation = json.loads(safe_read(path) or '{}')
 
     return g_translation.get(str, str)

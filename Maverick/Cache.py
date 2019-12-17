@@ -8,7 +8,7 @@ import shutil
 from PIL import Image
 from PIL import ImageFile
 import urllib
-import config
+from .Config import g_conf
 
 from urllib.parse import urlparse
 import urllib.request as request
@@ -101,7 +101,7 @@ def cache_img(src, base_path):
 
     # if it is remote image
     if src.startswith('http'):
-        if config.Config.fetch_remote_imgs:
+        if g_conf.fetch_remote_imgs:
             # download and treat it as local image
             try:
                 suffix = urlparse(src).path.split('.')[-1]

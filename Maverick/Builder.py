@@ -14,7 +14,6 @@ import functools
 import math
 import json
 
-import config
 from .Utils import logged_func, print_color, Color, safe_write, \
     safe_read, unify_joinpath, copytree, gen_hash
 from .Metadata import Metadata

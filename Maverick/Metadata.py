@@ -2,7 +2,7 @@
 
 import os
 import moment
-from config import g_conf
+from .Config import g_conf
 
 class Metadata(dict):
     """Metadata

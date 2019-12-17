@@ -28,10 +28,10 @@ Install dependencies:
 pip install -r prod_req.txt
 ```
 
-If error occurs, please verify your Python and pip version. Then get a copy of sample configuration file:
+If error occurs, please verify your Python and pip version. Then edit the default configuration file:
 
 ```bash
-cp ./config.sample.py ./config.py
+vi ./config.py
 ```
 
 For now let's use the default settings. Type this command in your terminal:
@@ -93,6 +93,14 @@ I suggest you keep a copy of sample articles come with Maverick as a reference t
 Although Maverick is much simpler than many other generators, it does have a few configurations you need to take care of, which you can modify in `config.py`. All these options  are listed bellow.
 
 Note: You can access other options by `${option_name}`. For example `${site_prefix}logo.png` will be parsed as `/logo.png`.
+
+Note: you can also use configuration file other than `config.py`, just specify it when build:
+
+```bash
+python ./build.py -c "./my_conf.py"
+# or
+python ./build.py --config "./my_conf.py"
+```
 
 ### Options for Maverick
 

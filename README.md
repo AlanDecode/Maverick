@@ -114,7 +114,7 @@ python ./build.py --config "./my_conf.py"
 | `archives_page_size` | 30                                              | The number of posts to show per page in archive list, category list and tag list. |
 | `fetch_remote_imgs`  | False                                           | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
 | `locale`             | `Asia/Shanghai`                                 | Specify where you are. Valid options are listed [here](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones). |
-| enable_jsdelivr      | {<br />"enabled": False,<br />"repo": ""<br />} | If you host your site on GitHub Pages, this option can enable [jsDelivr](https://www.jsdelivr.com/) as CDN service for all your static files, including JS files, CSS files and images. See `config.py` and preview site for an example. Basically, set `"enabled"` to `True` and set `"repo"` to `<user>/<repo>@<branch>`. |
+| `enable_jsdelivr`    | {<br />"enabled": False,<br />"repo": ""<br />} | If you host your site on GitHub Pages, this option can enable [jsDelivr](https://www.jsdelivr.com/) as CDN service for all your static files, including JS files, CSS files and images. See `config.py` and preview site for an example. Basically, set `"enabled"` to `True` and set `"repo"` to `<user>/<repo>@<branch>`. |
 
 ### Options for Your Site
 

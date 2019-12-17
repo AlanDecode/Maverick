@@ -1,6 +1,9 @@
 name: Update Theme And Preview Site
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -15,45 +18,19 @@ jobs:
       with:
         python-version: 3.5
 
-    - name: Set up NodeJS 10
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-
     - name: Install dependencies
       run: |
-        make clean
-        make dep
+        pip install -r prod_req.txt
 
     - name: Build
       run: |
-        make all
+        python build.py
 
-    - name: Commit changes to Maverick
-      run: |
-        git add .
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Action build"
-
-    - name: Push changes to Maverick
-      uses: ad-m/github-push-action@master
+    - name: Deploy to GitHub Pages
+      uses: docker://peaceiris/gh-pages:v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./test_dist
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Commit changes to preview site
-      run: |
-        cd ./test_dist/
-        git init
-        git add .
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Action build"
-
-    - name: Push new preview site
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: 'gh-pages'
-        force: true
-        directory: './test_dist/'
+        emptyCommits: false

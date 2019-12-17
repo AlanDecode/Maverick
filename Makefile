@@ -8,9 +8,6 @@ dep:
 site:
 	python build.py
 
-clean:
-	cd ./Templates/Galileo && rm -rf package-lock.json
-
 all: theme site
 
 .PHONY: theme site clean all

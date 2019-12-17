@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/AlanDecode/Maverick/master/banner.png)
 
-[![](https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square)](https://alandecode.github.io/Maverick/) [![build status](https://img.shields.io/travis/AlanDecode/Maverick/master.svg?style=flat-square)](https://travis-ci.org/AlanDecode/Maverick) ![](https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square)
+[![](https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square)](https://alandecode.github.io/Maverick/) [![Actions Status](https://github.com/AlanDecode/Maverick/workflows/Update%20Theme%20And%20Preview%20Site/badge.svg)](https://github.com/AlanDecode/Maverick/actions) ![](https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square)
 
 ## Overview
 

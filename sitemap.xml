@@ -6,7 +6,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
 
     <url>
-        <loc>/about/</loc>
+        <loc>https://alandecode.github.io/Maverick/about/</loc>
         <lastmod>2017-06-28</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
@@ -14,14 +14,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 
     <url>
-        <loc>/archives/194/</loc>
+        <loc>https://alandecode.github.io/Maverick/archives/194/</loc>
         <lastmod>2019-12-11</lastmod>
         <changefreq>always</changefreq>
         <priority>0.5</priority>
     </url>
 
     <url>
-        <loc>/archives/typography/</loc>
+        <loc>https://alandecode.github.io/Maverick/archives/typography/</loc>
         <lastmod>2018-11-09</lastmod>
         <changefreq>always</changefreq>
         <priority>0.5</priority>

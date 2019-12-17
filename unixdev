@@ -1,4 +1,0 @@
-export site_prefix=https://local.imalan.cn/
-export build_dir=./test_dist/
-export source_dir=./test_src/
-source ./venv/bin/activate

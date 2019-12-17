@@ -70,6 +70,11 @@ def cache_img(src, base_path):
             "height": -1
         }
 
+        # if enable serve images via jsDelivr CDN
+        if g_conf.serve_img_via_jsdelivr['enabled']:
+            info['src'] = "https://cdn.jsdelivr.net/gh/%s/archives/assets/%s" \
+                % (g_conf.serve_img_via_jsdelivr['repo'], filename)
+
         if filename in g_sizeinfo_cache:  # if size info in cache
             info['width'] = g_sizeinfo_cache[filename][0]
             info['height'] = g_sizeinfo_cache[filename][1]

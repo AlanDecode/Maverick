@@ -37,6 +37,10 @@ class Config(object):
     index_page_size = 10
     archives_page_size = 30
     fetch_remote_imgs = False
+    serve_img_via_jsdelivr = {
+        "enabled": False,
+        "repo": ""
+    }
     locale = "Asia/Shanghai"
 
     # For site

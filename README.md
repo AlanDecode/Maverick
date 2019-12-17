@@ -104,16 +104,17 @@ python ./build.py --config "./my_conf.py"
 
 ### Options for Maverick
 
-| Option               | Default Value   | Explanation                                                  |
-| -------------------- | --------------- | ------------------------------------------------------------ |
-| `site_prefix`        | `/`             | This value will be used to generate permalinks of your posts. Possible values are like `https://myblog.com/` or `https://me.com/blog/` or  just `/blog/`. If you want to put your site under sub directory, this option can be useful.  Don't forget `/` at the end. |
-| `source_dir`         | `./test_src/`   | A directory in which Maverick will try to find your articles. This can be any location on your machine, so feel free to store your articles in Dropbox, iCloud Drive or anywhere else to get them synced across multiple devices. |
-| `build_dir`          | `./test_dist/`  | Where Maverick should place all generated HTML files. This can be any location on your machine, just make sure you have write permission on it. |
-| `template`           | `Galileo`       | Specify the template to render your site. Currently `Galileo` is available. |
-| `index_page_size`    | 10              | The number of posts to show per page, change it to any number you like. |
-| `archives_page_size` | 30              | The number of posts to show per page in archive list, category list and tag list. |
-| `fetch_remote_imgs`  | False           | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
-| `locale`             | `Asia/Shanghai` | Specify where you are. Valid options are listed [here](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones). |
+| Option                   | Default Value                                   | Explanation                                                  |
+| ------------------------ | ----------------------------------------------- | ------------------------------------------------------------ |
+| `site_prefix`            | `/`                                             | This value will be used to generate permalinks of your posts. Possible values are like `https://myblog.com/` or `https://me.com/blog/` or  just `/blog/`. If you want to put your site under sub directory, this option can be useful.  Don't forget `/` at the end. |
+| `source_dir`             | `./test_src/`                                   | A directory in which Maverick will try to find your articles. This can be any location on your machine, so feel free to store your articles in Dropbox, iCloud Drive or anywhere else to get them synced across multiple devices. |
+| `build_dir`              | `./test_dist/`                                  | Where Maverick should place all generated HTML files. This can be any location on your machine, just make sure you have write permission on it. |
+| `template`               | `Galileo`                                       | Specify the template to render your site. Currently `Galileo` is available. |
+| `index_page_size`        | 10                                              | The number of posts to show per page, change it to any number you like. |
+| `archives_page_size`     | 30                                              | The number of posts to show per page in archive list, category list and tag list. |
+| `fetch_remote_imgs`      | False                                           | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
+| `locale`                 | `Asia/Shanghai`                                 | Specify where you are. Valid options are listed [here](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones). |
+| `serve_img_via_jsdelivr` | {<br />"enabled": False,<br />"repo": ""<br />} | If you host your site on GitHub Pages, this option can enable [jsDelivr](https://www.jsdelivr.com/) as CDN service for all your images, See `config.py` and preview site for an example. Basically, set `"enabled"` to `True` and set `"repo"` to `<user>/<repo>@<branch>`. |
 
 ### Options for Your Site
 
@@ -186,7 +187,7 @@ In `article.md`, you insert `pic.jpg` like bellow:
 
 When parsing `article.md`, Maverick will try to find `./assets/pic.jpg` on your machine, once been found, Maverick copies it to `build_dir/archives/asstes/`, and then change the link in `article.md`.
 
-Here is one more reason why Maverick is designed this way. In many cases, for example, light-box and photo arrangements on web pages requires predefined image dimensions. Instead of fetching size information at front-end, parsing size information at building stage can dramatically improve the experience.
+Here is one more reason why Maverick is designed this way. In many cases, for example, light-box and photo arrangements on web pages requires predefined image dimensions. Instead of fetching size information at front-end, parsing size information at building stage can dramatically improve the experience. **Besides, this design can enable jsDelivr as CDN service for all your images.** 
 
 It's special for remote images though. We can't easily get size information of them, so Maverick can try to download remote images to local disk and treat them as local images, this feature is disabled by default, you can turn it on by setting `fetch_remote_imgs` to `True` in configuration file. If you don't want to download full images to, just leave  `fetch_remote_imgs` as `False`, Maverick will try to get the size of the image by downloading very small part of it (in most cases only 1~2 KB is needed).
 

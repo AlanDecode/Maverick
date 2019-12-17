@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="english">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Maverick,AlanDecode,Galileo,blog" />
+    <meta name="generator" content="Maverick 1.0" />
+    <meta name="template" content="Galileo" />
+    <link rel="alternate" type="application/rss+xml" title="Maverick &raquo; RSS 2.0" href="/feed/index.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Maverick &raquo; ATOM 1.0" href="/feed/atom/index.xml" />
+    <link rel="stylesheet" href="/assets/galileo-8b8364b2fe.css">
+    <link rel="stylesheet" href="/assets/ExSearch/ExSearch-182e5a8868.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <script>
+        var ExSearchConfig = {
+            root: "",
+            api: "/3aa33e67c6c58ff4cdf04ff3b603a884.json"
+        }
+    </script>
+    
+<title>Overview of Maverick - Maverick</title>
+<meta name="author" content="AlanDecode" />
+<meta name="description" content="Maverick is a static blog generator built with python." />
+<meta property="og:title" content="Overview of Maverick - Maverick" />
+<meta property="og:description" content="Maverick is a static blog generator built with python." />
+<meta property="og:site_name" content="Maverick" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/archives/194/" />
+<meta property="og:image" content="" />
+<meta property="article:published_time" content="2019-12-11T22:23:00-00.00" />
+<meta name="twitter:title" content="Overview of Maverick - Maverick" />
+<meta name="twitter:description" content="Maverick is a static blog generator built with python." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="" />
+
+
+    
+<!-- Content here will be added before </head>. -->
+
+    </head>
+    
+    <body>
+        
+            <div id="bg" style="background-image: url(/bg/The_Great_Wave_off_Kanagawa.jpg)"></div>
+        
+        <div class="container">
+            <header id="ga-header">
+                <div first>
+                    <aside id="ga-logo">
+                        <a href="/" target="_self">
+                            <img src="/android-chrome-512x512.png" alt="Maverick">
+                        </a>
+                    </aside>
+                    <aside id="ga-brand">
+                        <h1 class="brand"><a class="no-style" href="/">Maverick</a></h1>
+                        <p>This is Maverick, Theme Galileo.</p>
+                    </aside>
+                </div>
+                <div second id="ga-nav">
+                    <nav class="navs">
+                        <ul><li><a class="ga-highlight" href="/" target="_self">Home</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/archives/" target="_self">Archives</a></li><span class="separator">·</span><li><a class="ga-highlight" href="/about/" target="_self">About</a></li><span class="separator">·</span><li><a href="#" target="_self" class="search-form-input ga-highlight">Search</a></li></ul>
+                    </nav>
+                    <nav class="social-links">
+                        <ul><li><a class="no-style" title="Twitter" href="https://twitter.com/AlanDecode" target="_blank"><i class="gi gi-twitter"></i>Twitter</a></li><span class="separator">·</span><li><a class="no-style" title="GitHub" href="https://github.com/AlanDecode" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Weibo" href="https://weibo.com/5245109677/" target="_blank"><i class="gi gi-weibo"></i>Weibo</a></li></ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="wrapper">
+                
+<main>    
+    <section class="ga-section" id="ga-content">
+        <article class="yue">
+            <h1 class="ga-post_title">Overview of Maverick</h1>
+            <span class="ga-post_meta ga-mono">
+                <span>AlanDecode</span>
+                <time>
+                    2019-12-11
+                </time>
+                
+                in <a no-style class="category" href="/category/Maverick/">
+                    Maverick
+                </a>
+                
+                
+            </span>
+            <div class="ga-content_body">
+                <h2>Overview</h2>
+<p>Maverick is a static blog generator built with python. Like Hexo and Jekyll, it takes Markdown(<code>.md</code>) files as input, and output beautifully formated and well structured website pages(<code>.html</code>). It has a lot built-in useful features(feed, search, sitemap, etc.), with extended Markdown syntax and enhanced image processing pipeline.</p>
+<p>If you are tired of intricate plugins and complicated configurations, just give Maverick a try. You focus on writing, let Maverick take care of the rest.</p>
+<p>Pull requests are surely welcome. If you have any questions or suggestions, please head to <a href="https://github.com/AlanDecode/Maverick/issues">issue area</a> and leave us a message. Before that, let's finish this document.</p>
+<h2>Usage</h2>
+<p>Maverick is build with modern Python, currently at least <strong>Python 3.5</strong> is required, make sure you have it installed on your machine.</p>
+<h3>Install</h3>
+<p>Clone this repository:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/AlanDecode/Maverick.git ./Maveric <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ./Maveric
+</pre></div>
+<p>Install all dependencies:</p>
+<div class="highlight"><pre><span></span>pip install -r prod_req.txt
+</pre></div>
+<p>If error occurs, please verify your Python and pip version. Then get a copy of sample config file:</p>
+<div class="highlight"><pre><span></span>cp ./config.sample.py ./config.py
+</pre></div>
+<p>For now let's use the default configurations. Type this command in your terminal:</p>
+<div class="highlight"><pre><span></span>python ./build.py
+</pre></div>
+<p>...and a sample static site is generated in <code>test_dist</code> folder! You can then upload them to GitHub Pages or any other server.</p>
+<h3>Generate your own site</h3>
+<p>By default, Maverick searches all <code>.md</code> files recursively under <code>test_src</code> folder, so put your Markdown files in it and run <code>python ./build.py</code> then everything you need will be in <code>test_dist</code> folder. Maverick uses so-called <code>YAML frontmatter</code> to get meta data of your articles, if you have tried Hexo or Jekyll, you should be familiar with it; if you don't, let's look into it now.</p>
+<p>......</p>
+<p>Read the full documentation <a href="https://github.com/AlanDecode/Maverick">here</a>.</p>
+<h2>License</h2>
+<p>MIT © <a href="https://github.com/AlanDecode">AlanDecode</a>.</p>
+
+            </div>
+        </article>
+        <div id="ga-tags">
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/Coding/">#Coding</a>
+    </span>
+    
+    <span class="ga-tag">
+        <a class="ga-highlight" href="/tag/Development/">#Development</a>
+    </span>
+    
+</div>
+
+<!--katex-->
+<link rel="stylesheet" href="/assets/katex.min.css">
+<script defer src="/assets/katex.min.js"></script>
+<script>
+mathOpts = {
+    delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+    ]
+};
+</script>
+<script defer src="/assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
+    </section>
+
+    
+<section id="ga-content_pager">
+
+    <div class="next">
+        <h3>No More</h3>
+        <p class="yue">This is the latest one.</p>
+    </div>
+
+
+    <div class="prev">
+        <a class="ga-highlight" href="/archives/typography/">Typography</a>
+        <p class="yue">This is an sample article. Typography matters in Maverick.
+</p>
+    </div>
+
+</section>
+
+
+    
+
+</main>
+
+                <footer class="ga-mono" id="ga-footer">
+                    <section>
+                        <span id="ga-uptime"></span>
+                        <span class="brand">Maverick</span>
+                    </section>
+                    <section>
+                        <p class="copyright">
+                            <span>Copyright © 2019 AlanDecode</span>
+                            <span>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Galileo</a></span>
+                        </p>
+                        <div class="copyright">
+                            <span class="footer-addon">
+                                
+<!-- Content here will be added to <footer> tag.-->
+
+                            </span>
+                            <nav class="social-links">
+                                <ul><li><a class="no-style" title="Twitter" href="https://twitter.com/AlanDecode" target="_blank"><i class="gi gi-twitter"></i>Twitter</a></li><span class="separator">·</span><li><a class="no-style" title="GitHub" href="https://github.com/AlanDecode" target="_blank"><i class="gi gi-github"></i>GitHub</a></li><span class="separator">·</span><li><a class="no-style" title="Weibo" href="https://weibo.com/5245109677/" target="_blank"><i class="gi gi-weibo"></i>Weibo</a></li></ul>
+                            </nav>
+                        </div>
+                    </section>
+                    <script>
+                        var site_build_date = "2019-12-06T12:00+08:00"
+                    </script>
+                    <script src="/assets/galileo-0ad83d4976.js"></script>
+                </footer>
+            </div>
+        </div>
+    </div>
+        
+        
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div> 
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/ExSearch/jquery.min.js"></script>
+    <script src="/assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+
+    
+<!-- Content here will be added before </body>. -->
+
+    </body>
+</html>

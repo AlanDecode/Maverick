@@ -1,4 +1,4 @@
-name: Update Theme And Preview Site
+name: Build
 
 on:
   push:

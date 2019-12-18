@@ -18,7 +18,7 @@ locale = "Asia/Shanghai"
 
 # For site
 site_name = "Maverick"
-site_logo = "${site_prefix}android-chrome-512x512.png"
+site_logo = "${static_prefix}android-chrome-512x512.png"
 site_build_date = "2019-12-06T12:00+08:00"
 author = "AlanDecode"
 email = "hi@imalan.cn"
@@ -26,7 +26,7 @@ author_homepage = "https://www.imalan.cn"
 description = "This is Maverick, Theme Galileo."
 key_words = ["Maverick", "AlanDecode", "Galileo", "blog"]
 language = 'english'
-background_img = '${site_prefix}bg/The_Great_Wave_off_Kanagawa.jpg'
+background_img = '${static_prefix}bg/The_Great_Wave_off_Kanagawa.jpg'
 external_links = [
     {
         "name": "AlanDecode/Maverick",

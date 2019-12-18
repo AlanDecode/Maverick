@@ -8,6 +8,7 @@ import re
 import os
 from Maverick.Config import g_conf
 from Maverick.Utils import tr
+from Maverick.Router import Router
 
 
 static_files = {
@@ -38,6 +39,7 @@ def filterPlaceholders(content):
     2. search key in config
     """
     pattern = re.compile(r'[\s\S]*?\$\{([\s\S]*?)\}')
+    router = Router(g_conf)
 
     def getKey(str):
         m = pattern.match(str)
@@ -52,15 +54,18 @@ def filterPlaceholders(content):
             break
 
         search_str = '${%s}' % key
-
-        # find in os.env
-        value = os.getenv(key, None)
-        if value is None:
-            # find in config
-            try:
-                value = getattr(g_conf, key)
-            except AttributeError:
-                pass
+        value = ''
+        if key == "static_prefix":
+            value = router.gen_static_file_prefix()
+        else:
+            # find in os.env
+            value = os.getenv(key, None)
+            if value is None:
+                # find in config
+                try:
+                    value = getattr(g_conf, key)
+                except AttributeError:
+                    pass
 
         # replace
         content = content.replace(search_str, str(value), 1)

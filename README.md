@@ -92,16 +92,6 @@ I suggest you keep a copy of sample articles come with Maverick as a reference t
 
 Although Maverick is much simpler than many other generators, it does have a few configurations you need to take care of, which you can modify in `config.py`. All these options  are listed bellow.
 
-Note: You can access other options by `${option_name}`. For example `${site_prefix}logo.png` will be parsed as `/logo.png`.
-
-Note: you can also use configuration file other than `config.py`, just specify it when build:
-
-```bash
-python ./build.py -c "./my_conf.py"
-# or
-python ./build.py --config "./my_conf.py"
-```
-
 ### Options for Maverick
 
 | Option               | Default Value                                   | Explanation                                                  |
@@ -137,6 +127,18 @@ python ./build.py --config "./my_conf.py"
 | `body_addon`      | -                                       | Content here will be added to `<body>` tag, external JavaScripts and can be put here. |
 | `language`        | `english`                               | Site language.                                               |
 | `background_img`  | -                                       | Background image for your site. Better be light-colored.     |
+
+💡 Note: You can access other options by `${option_name}`. For example `${site_prefix}logo.png` will be parsed as `/logo.png` if you set `site_prefix` to `/`. When using this feature, **watch out for infinite loops**.
+
+💡 Note: You can use `${static_prefix}` instead of `${site_prefix}` to reference static files, if you enabled jsDelivr as CDN service.
+
+💡 Note: you can also use configuration file other than `config.py`, just specify it when build:
+
+```bash
+python ./build.py -c "./my_conf.py"
+# or
+python ./build.py --config "./my_conf.py"
+```
 
 ## Images and Static Assets
 

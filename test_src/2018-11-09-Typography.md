@@ -12,7 +12,7 @@ tags:
   - Typography
 ---
 
-This is an sample article. Typography matters in Maverick.
+[notice]This is an sample article. Typography matters in Maverick.[/notice]
 
 <!--more-->
 

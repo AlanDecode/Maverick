@@ -44,7 +44,7 @@ class AutotagLexer(object):
         self.rules.autotag = re.compile(
             r' *?\[(.*?)\]'
             r'([\s\S]*?)'
-            r'\[/(.*?)\]'
+            r'\[/\1\]'
         )
         self.default_rules.insert(4, 'autotag')
 

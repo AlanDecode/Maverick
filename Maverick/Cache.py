@@ -189,6 +189,6 @@ def dump_log():
     json_path = './tmp/used_imgs.json'
     sizeinfo_json_path = './cached_imgs/sizeinfo.json'
 
-    safe_write(json_path, json.dumps(list(g_used_imgs), indent=1))
+    safe_write(json_path, json.dumps(list(g_used_imgs or []), indent=1))
     safe_write(sizeinfo_json_path, json.dumps(
-        g_sizeinfo_cache, indent=1))
+        g_sizeinfo_cache or {}, indent=1))

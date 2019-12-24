@@ -66,16 +66,16 @@ def cache_img(src, base_path):
         g_used_imgs = g_used_imgs | set([filename])
 
         info = {
-            "src": '../assets/' + filename,
+            "src": '',
             "width": -1,
             "height": -1
         }
 
-        # if enable serve images via jsDelivr CDN
-        if g_conf.enable_jsdelivr['enabled']:
-            router = Router(g_conf)
-            static_prefix = router.gen_static_file_prefix()
-            info['src'] = "%sarchives/assets/%s" % (static_prefix, filename)
+        # if enable jsDelivr CDN, add prefix
+        # if not, fallback (site_prefix) will be used
+        router = Router(g_conf)
+        static_prefix = router.gen_static_file_prefix()
+        info['src'] = "%sarchives/assets/%s" % (static_prefix, filename)
 
         if filename in g_sizeinfo_cache:  # if size info in cache
             info['width'] = g_sizeinfo_cache[filename][0]

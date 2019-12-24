@@ -15,7 +15,7 @@
             <article class="yue">
                 <h1>{{ content.meta['title'] }}</h1>
                 {% if content.meta['showfull'] %}
-                    {{ content.parsed }}
+                    <div class="ga-content">{{ content.parsed }}</div>
                 {% else %}
                     <blockquote>{{ content.excerpt }}</blockquote>
                 {% endif %}

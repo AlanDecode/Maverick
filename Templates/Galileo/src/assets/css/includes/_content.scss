@@ -1,5 +1,7 @@
-#ga-content {
-    padding-top: 2rem;
+.ga-content {
+    main > & {
+        padding-top: 2rem;
+    }
     h1.ga-post_title {
         margin-bottom: 0;
     }

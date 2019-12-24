@@ -54,45 +54,45 @@
             margin-bottom: .67rem;
             margin-left: 0;
         }
-        ul {
+        > ul {
             list-style: none;
             padding: 0;
-            li {
+            > li {
                 margin-bottom: 2rem;
-            }
-            h1 {
-                font-size: 1.35rem;
-                line-height: 1.5;
-            }
-            a {
-                color: $black;
-            }
-            footer {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                font-size: 0.95rem;
-            }
-            span.ga-read_more::before {
-                content: "→ ";
-                font-family: $ga-font-mono;
-            }
-            time {
-                color: $faded-black-light;
-                font-size: 0.85rem;
-                white-space: nowrap;
-                &::before {
-                    content: "/* ";
+                h1 {
+                    font-size: 1.35rem;
+                    line-height: 1.5;
                 }
-                &::after {
-                    content: " */";
+                a {
+                    color: $black;
+                }
+                footer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    font-size: 0.95rem;
+                }
+                span.ga-read_more::before {
+                    content: "→ ";
+                    font-family: $ga-font-mono;
+                }
+                time {
+                    color: $faded-black-light;
+                    font-size: 0.85rem;
+                    white-space: nowrap;
+                    &::before {
+                        content: "/* ";
+                    }
+                    &::after {
+                        content: " */";
+                    }
                 }
             }
         }
     }
     &#ga-archive_list {
         padding-top: 3rem;
-        ul li {
+        > ul > li {
             margin-bottom: 1.75rem;
             display: flex;
             flex-direction: row;
@@ -113,9 +113,9 @@
         }
     }
     &#ga-external_links {
-        ul {
+        > ul {
             margin-left: 1.5rem;
-            li {
+            > li {
                 margin-bottom: 0.5rem;
                 line-height: $contentLineHeight;
                 position: relative;

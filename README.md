@@ -19,7 +19,7 @@ Maverick is built with modern Python, currently at least **Python 3.5** is requi
 Clone this repository:
 
 ```bash
-git clone https://github.com/AlanDecode/Maverick.git ./Maveric && cd ./Maveric
+git clone https://github.com/AlanDecode/Maverick.git ./Maverick && cd ./Maverick
 ```
 
 Install dependencies:

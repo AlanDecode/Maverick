@@ -36,18 +36,4 @@
     {% endfor %}
 </div>
 
-<!--katex-->
-<link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/katex.min.css">
-<script defer src="{{ Router.gen_static_file_prefix() }}assets/katex.min.js"></script>
-<script>
-mathOpts = {
-    delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "\\[", right: "\\]", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\(", right: "\\)", display: false}
-    ]
-};
-</script>
-<script defer src="{{ Router.gen_static_file_prefix() }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 {%- endblock more_content %}

@@ -11,7 +11,7 @@
     <meta name="template" content="Galileo" />
     <link rel="alternate" type="application/rss+xml" title="{{ fp(config.site_name) }} &raquo; RSS 2.0" href="{{ fp(config.site_prefix) }}feed/index.xml" />
     <link rel="alternate" type="application/atom+xml" title="{{ fp(config.site_name) }} &raquo; ATOM 1.0" href="{{ fp(config.site_prefix) }}feed/atom/index.xml" />
-    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/galileo-3c4938d434.css">
+    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/galileo-ec40839efa.css">
     <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-182e5a8868.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <script>
@@ -121,6 +121,21 @@
 
     <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/jquery.min.js"></script>
     <script src="{{ Router.gen_static_file_prefix() }}assets/ExSearch/ExSearch-493cb9cd89.js"></script>
+    
+    <!--katex-->
+    <link rel="stylesheet" href="{{ Router.gen_static_file_prefix() }}assets/katex.min.css">
+    <script defer src="{{ Router.gen_static_file_prefix() }}assets/katex.min.js"></script>
+    <script>
+    mathOpts = {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    };
+    </script>
+    <script defer src="{{ Router.gen_static_file_prefix() }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
     {{ fp(config.body_addon) }}
     </body>

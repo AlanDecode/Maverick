@@ -12,7 +12,7 @@ import json
 from feedgen.feed import FeedGenerator
 
 from .Router import Router
-from .Utils import safe_write, unify_joinpath, tr
+from .Utils import safe_write, unify_joinpath
 from .Markdown import Markdown
 
 class Renderer:
@@ -23,7 +23,6 @@ class Renderer:
         self._env.globals['moment'] = moment
         self._env.globals['config'] = self._config
         self._env.globals['Router'] = Router(self._config)
-        self._env.globals['tr'] = tr
 
         from importlib import import_module
         self._theme = import_module(template)

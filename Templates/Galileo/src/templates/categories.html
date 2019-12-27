@@ -1,5 +1,9 @@
 {% extends "includes/skeleton_archive.html" %}
 
+{% block title %}
+    {{ tr('Category') }}: {{ cate_name }} - {{ fp(config.site_name) }}
+{% endblock title %}
+
 {% block more_section %}
 
 <section id="ga-archive_list" class="ga-section" data-title="Cate: {{ cate_name -}}">

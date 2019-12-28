@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 import shutil
 import codecs
 import hashlib
 import chardet
 import json
 from .Config import g_conf
+from .Router import Router
 from enum import Enum
 
 
@@ -64,7 +66,7 @@ def safe_write(path, content, codec="utf-8"):
 def safe_read(path):
     if not os.path.exists(path):
         return ""
-    
+
     # utf-8 is prefered
     try:
         with open(path, 'r', encoding='utf-8') as f:
@@ -85,3 +87,44 @@ def gen_hash(str):
 def unify_joinpath(left, right):
     path = os.path.join(left, right)
     return path.replace('\\', '/')
+
+
+def filterPlaceholders(content):
+    """replace content like ${key} to corresponding value
+
+    1. search key in env
+    2. search key in config
+    """
+    pattern = re.compile(r'[\s\S]*?\$\{([\s\S]*?)\}')
+    router = Router(g_conf)
+
+    def getKey(str):
+        m = pattern.match(str)
+        if not m is None:
+            return m.group(1)
+        else:
+            return None
+
+    while True:
+        key = getKey(content)
+        if key is None:
+            break
+
+        search_str = '${%s}' % key
+        value = ''
+        if key == "static_prefix":
+            value = router.gen_static_file_prefix()
+        else:
+            # find in os.env
+            value = os.getenv(key, None)
+            if value is None:
+                # find in config
+                try:
+                    value = getattr(g_conf, key)
+                except AttributeError:
+                    pass
+
+        # replace
+        content = content.replace(search_str, str(value), 1)
+
+    return content

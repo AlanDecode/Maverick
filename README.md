@@ -96,37 +96,38 @@ Although Maverick is much simpler than many other generators, it does have a few
 
 | Option               | Default Value                                   | Explanation                                                  |
 | -------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| `site_prefix`        | `/`                                             | This value will be used to generate permalinks of your posts. Possible values are like `https://myblog.com/` or `https://me.com/blog/` or  just `/blog/`. If you want to put your site under sub directory, this option can be useful.  Don't forget `/` at the end. |
-| `source_dir`         | `./test_src/`                                   | A directory in which Maverick will try to find your articles. This can be any location on your machine, so feel free to store your articles in Dropbox, iCloud Drive or anywhere else to get them synced across multiple devices. |
-| `build_dir`          | `./test_dist/`                                  | Where Maverick should place all generated HTML files. This can be any location on your machine, just make sure you have write permission on it. |
-| `template`           | `Galileo`                                       | Specify the template to render your site. Currently `Galileo` is available. |
-| `index_page_size`    | 10                                              | The number of posts to show per page, change it to any number you like. |
-| `archives_page_size` | 30                                              | The number of posts to show per page in archive list, category list and tag list. |
-| `fetch_remote_imgs`  | False                                           | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
+| `site_prefix`        | `"/"`                                           | This value will be used to generate permalinks of your posts. Possible values are like `https://myblog.com/` or `https://me.com/blog/` or  just `/blog/`. If you want to put your site under sub directory, this option can be useful.  Don't forget `/` at the end. |
+| `source_dir`         | `"./test_src/"`                                 | A directory in which Maverick will try to find your articles. This can be any location on your machine, so feel free to store your articles in Dropbox, iCloud Drive or anywhere else to get them synced across multiple devices. |
+| `build_dir`          | `"./test_dist/"`                                | Where Maverick should place all generated HTML files. This can be any location on your machine, just make sure you have write permission on it. |
+| `template`           | `"Galileo"`                                     | Specify the template to render your site. Currently `Galileo` is available. |
+| `index_page_size`    | `10`                                            | The number of posts to show per page, change it to any number you like. |
+| `archives_page_size` | `30`                                            | The number of posts to show per page in archive list, category list and tag list. |
+| `fetch_remote_imgs`  | `False`                                         | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
 | `locale`             | `Asia/Shanghai`                                 | Specify where you are. Valid options are listed [here](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones). |
 | `enable_jsdelivr`    | {<br />"enabled": False,<br />"repo": ""<br />} | If you host your site on GitHub Pages, this option can enable [jsDelivr](https://www.jsdelivr.com/) as CDN service for all your static files, including JS files, CSS files and images. See `config.py` and preview site for an example. Basically, set `"enabled"` to `True` and set `"repo"` to `<user>/<repo>@<branch>`. |
+| `category_by_folder` | `False`                                         | Category contents by folder structure rather than front-matter. |
 
 ### Options for Your Site
 
-| Option            | Default Value                           | Explanation                                                  |
-| ----------------- | --------------------------------------- | ------------------------------------------------------------ |
-| `site_name`       | `Hellow Maverick!`                      | Website name. Change it to something really cool!            |
-| `site_logo`       | -                                       | Website logo. Better be a square image.                      |
-| `site_build_date` | `2019-12-06T12:00+08:00`                | When you build this site.                                    |
-| `author`          | -                                       | Author's name.                                               |
-| `email`           | -                                       | Author's email.                                              |
-| `author_homepage` | `/`                                     | Author's homepage.                                           |
-| `description`     | `A marvelous site powered by Maverick!` | Description of your site.                                    |
-| `keywords`        | -                                       | Four or five keywords about your site.                       |
-| `external_links`  | -                                       | Will be used in `Links` section on home page.                |
-| `nav`             | -                                       | Will be used to generate navigations behind site title.      |
-| `social_links`    | -                                       | Will be used to generate social links behind site title.     |
-| `valine`          | -                                       | Maverick now supports Valine as its comment system. Please refer to [Comments](#comments) for more information. |
-| `head_addon`      | -                                       | Content here will be added to `<head>` tag of generated HTMLs, you can put some `meta` tag here, or use `<link>` and `<script>` to import custom CSS and JavaScript files. |
-| `footer_addon`    | -                                       | Content here will be added to `<footer>` tag. You can add some additional info here. |
-| `body_addon`      | -                                       | Content here will be added to `<body>` tag, external JavaScripts and can be put here. |
-| `language`        | `english`                               | Site language.                                               |
-| `background_img`  | -                                       | Background image for your site. Better be light-colored.     |
+| Option            | Default Value                             | Explanation                                                  |
+| ----------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| `site_name`       | `"Hellow Maverick!"`                      | Website name. Change it to something really cool!            |
+| `site_logo`       | -                                         | Website logo. Better be a square image.                      |
+| `site_build_date` | `"2019-12-06T12:00+08:00"`                | When you build this site.                                    |
+| `author`          | -                                         | Author's name.                                               |
+| `email`           | -                                         | Author's email.                                              |
+| `author_homepage` | `"/"`                                     | Author's homepage.                                           |
+| `description`     | `"A marvelous site powered by Maverick!"` | Description of your site.                                    |
+| `keywords`        | -                                         | Four or five keywords about your site.                       |
+| `external_links`  | -                                         | Will be used in `Links` section on home page.                |
+| `nav`             | -                                         | Will be used to generate navigations behind site title.      |
+| `social_links`    | -                                         | Will be used to generate social links behind site title.     |
+| `valine`          | -                                         | Maverick now supports Valine as its comment system. Please refer to [Comments](#comments) for more information. |
+| `head_addon`      | -                                         | Content here will be added to `<head>` tag of generated HTMLs, you can put some `meta` tag here, or use `<link>` and `<script>` to import custom CSS and JavaScript files. |
+| `footer_addon`    | -                                         | Content here will be added to `<footer>` tag. You can add some additional info here. |
+| `body_addon`      | -                                         | Content here will be added to `<body>` tag, external JavaScripts and can be put here. |
+| `language`        | `"english"`                               | Site language.                                               |
+| `background_img`  | -                                         | Background image for your site. Better be light-colored.     |
 
 💡 Note: You can access other options by `${option_name}`. For example `${site_prefix}logo.png` will be parsed as `/logo.png` if you set `site_prefix` to `/`. When using this feature, **watch out for infinite loops**.
 

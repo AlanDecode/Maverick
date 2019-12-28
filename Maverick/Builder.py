@@ -13,6 +13,7 @@ import shutil
 import functools
 import math
 import json
+import pathlib
 
 from .Utils import logged_func, print_color, Color, safe_write, \
     safe_read, unify_joinpath, copytree, gen_hash
@@ -21,10 +22,11 @@ from .Content import Content, ContentList, group_by_category, group_by_tagname
 from .Router import Router
 from .Renderer import Renderer
 from .Cache import dump_log
+from .Config import Config
 
 
 class Builder:
-    def __init__(self, conf):
+    def __init__(self, conf: Config):
         self._config = conf
         self._renderer = Renderer(conf)
         self._router = Router(conf)
@@ -187,9 +189,6 @@ class Builder:
                     content_prev = self._posts[index_prev]
 
             meta = content.meta
-            self._tags = set(meta["tags"]) | self._tags
-            self._categories = set(meta["categories"]) | self._categories
-
             _, local_path = self._router.gen_by_meta(meta)
             if not os.path.exists(local_path):
                 os.makedirs(local_path)
@@ -237,22 +236,38 @@ class Builder:
 
         print('Loading contents...')
         walker = os.walk(self._config.source_dir)
+        source_abs_dir = pathlib.PurePath(
+            os.path.abspath(self._config.source_dir))
         for path, _, filelist in walker:
             for file in filelist:
                 if file.split(".")[-1].lower() == "md" or \
                         file.split(".")[-1].lower() == "markdown":
 
-                        content = Content(os.path.abspath(
-                            unify_joinpath(path, file)))
+                        content_path = os.path.abspath(
+                            unify_joinpath(path, file))
+                        content = Content(content_path)
                         if not content.get_meta("status").lower() in [
                                 "publish", "published", "hide", "hidden"]:
                             continue
 
                         layout = content.get_meta("layout").lower()
                         if layout == "post":
+                            if (self._config.category_by_folder):
+                                relative_path = pathlib.PurePath(
+                                    content_path).relative_to(source_abs_dir)
+                                relative_path = list(relative_path.parts[0:-1])
+                                if len(relative_path) == 0:
+                                    relative_path.append('Default')
+                                content.update_meta('categories', relative_path)
                             self._posts.append(content)
                         elif layout == "page":
+                            content.update_meta('categories', [])
                             self._pages.append(content)
+
+                        meta = content.meta
+                        self._tags = set(meta["tags"]) | self._tags
+                        self._categories = set(meta["categories"]) | self._categories
+
         print('Contents loaded.')
 
         self._posts = ContentList(sorted(self._posts,
@@ -271,9 +286,9 @@ class Builder:
 
         # filter out hidden posts before building post list
         self._posts = ContentList(
-            filter(lambda content: not content.skip, self._posts))
+            [item for item in self._posts if not item.skip])
         self._pages = ContentList(
-            filter(lambda content: not content.skip, self._pages))
+            [item for item in self._pages if not item.skip])
 
         self.build_index()
         self.build_archives()

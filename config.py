@@ -15,6 +15,7 @@ enable_jsdelivr = {
     "repo": "AlanDecode/Maverick@gh-pages"
 }
 locale = "Asia/Shanghai"
+category_by_folder = False
 
 # For site
 site_name = "Maverick"

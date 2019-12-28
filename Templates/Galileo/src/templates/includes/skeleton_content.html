@@ -32,8 +32,8 @@
                     {{ content.get_meta('date').format("YYYY-MM-DD") }}
                 </time>
                 {% if len(content.get_meta('categories')) > 0 %}
-                in <a no-style class="category" href="{{ Router.gen_permalink('category', content.get_meta('categories')[0], 1) }}">
-                    {{ content.get_meta('categories')[0] }}
+                in <a no-style class="category" href="{{ Router.gen_permalink('category', content.get_meta('categories')[-1], 1) }}">
+                    {{ content.get_meta('categories')[-1] }}
                 </a>
                 {% endif %}
                 {% if config.valine['enable'] and config.valine['visitor'].lower()=='true' and content.get_meta('comment') %}

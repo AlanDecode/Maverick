@@ -17,7 +17,8 @@ def group_by_tagname(tag):
 
 def group_by_category(category):
     def criteria(content):
-        return category in content.get_meta('categories')
+        # direct category
+        return category == content.get_meta('categories')[-1]
     return criteria
 
 
@@ -53,6 +54,9 @@ class Content():
 
     def get_meta(self, key, default=None):
         return self.meta.get(key, default)
+
+    def update_meta(self, key, value):
+        self.meta[key] = value
 
     @staticmethod
     def cmp_by_date(content_1, content_2):

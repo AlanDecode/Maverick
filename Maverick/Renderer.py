@@ -5,6 +5,7 @@ Render contens by Jinja
 """
 
 import os
+import sys
 from jinja2 import Environment, PackageLoader
 import moment
 import re
@@ -15,10 +16,22 @@ from .Router import Router
 from .Utils import safe_write, unify_joinpath, filterPlaceholders
 from .Markdown import Markdown
 
+
 class Renderer:
     def __init__(self, config):
         self._config = config
-        template = ".".join(["Templates", self._config.template])
+
+        template = ''
+        if type(self._config.template) == str:
+            template = ".".join(["Templates", self._config.template])
+        elif type(self._config.template) == dict:
+            if self._config.template['type'] == 'local':
+                sys.path.append(os.path.dirname(
+                    os.path.abspath(self._config.template['path'])))
+                template = self._config.template['name']
+        else:
+            template = 'Templates.Galileo'
+
         self._env = Environment(loader=PackageLoader(template))
         self._env.globals['moment'] = moment
         self._env.globals['config'] = self._config
@@ -27,7 +40,7 @@ class Renderer:
 
         from importlib import import_module
         self._theme = import_module(template)
-        
+
         for k, v in self._theme .theme_globals.items():
             self._env.globals[k] = v
 

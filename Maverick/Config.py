@@ -33,6 +33,13 @@ class Config(object):
     site_prefix = "/"
     source_dir = "./test_src/"
     build_dir = "./test_dist/"
+    
+    # to use theme in another local folder, set:
+    # template = {
+    #     "name": "<name of template>",
+    #     "type": "local",
+    #     "path": "<path to template>"
+    # }
     template = "Galileo"
     index_page_size = 10
     archives_page_size = 30

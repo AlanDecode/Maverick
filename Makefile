@@ -1,3 +1,6 @@
+.PHONY: theme site clean all
+default: site
+
 theme:
 	cd ./Templates/Galileo && gulp
 
@@ -9,5 +12,3 @@ site:
 	python build.py
 
 all: theme site
-
-.PHONY: theme site clean all

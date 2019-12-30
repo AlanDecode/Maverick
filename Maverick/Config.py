@@ -33,7 +33,7 @@ class Config(object):
     site_prefix = "/"
     source_dir = "./test_src/"
     build_dir = "./test_dist/"
-    
+
     # to use theme in another local folder, set:
     # template = {
     #     "name": "<name of template>",
@@ -83,5 +83,6 @@ class Config(object):
     footer_addon = ""
 
     body_addon = ""
+
 
 g_conf = Config()

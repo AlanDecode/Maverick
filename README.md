@@ -288,21 +288,7 @@ valine = {
 
 ## Development
 
-If you want to contribute to Maverick or build your own version, you need NodeJS@10 installed on your machine, then do this:
-
-```bash
-# Install dependencies for theme development
-cd ./Templates/Galileo
-npm install -g gulp
-npm install
-cd ../../
-```
-
-Source code for default theme (Galileo) is under `./Templates/Galileo/src/`. Make your own modifications, then build it:
-
-```bash
-make all
-```
+Pull requests are surely welcome. See [theme-Dev.md](https://github.com/AlanDecode/Maverick/blob/master/theme-Dev.md) for documentation on developing a theme for Maverick.
 
 ## License
 

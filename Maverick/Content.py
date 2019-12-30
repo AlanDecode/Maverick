@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from .Metadata import Metadata
+from .Markdown import Markdown
 from .Utils import safe_read
-from .Renderer import Renderer
 
 import re
 import yaml
-import codecs
 
 
 def group_by_tagname(tag):
@@ -43,13 +42,29 @@ class Content():
     @property
     def excerpt(self):
         if self._excerpt is None:
-            self._excerpt = Renderer.excerpt(self)
+            def strip(text):
+                    r = re.compile(r'<[^>]+>', re.S)
+                    return r.sub('', text)
+
+            output = self.get_meta("excerpt")
+            if output != "" and output != "None":
+                return output
+
+            # find <!--more-->
+            index = self.parsed.find('<!--more-->')
+            if index != -1:
+                output = strip(self.parsed[:index])
+            else:
+                output = strip(self.parsed)
+                output = output[:output.find('\n')]
+            self._excerpt = output
+
         return self._excerpt
 
     @property
     def parsed(self):
         if self._parsed is None:
-            self._parsed = Renderer.markdown(self)
+            self._parsed = Markdown(self)
         return self._parsed
 
     def get_meta(self, key, default=None):

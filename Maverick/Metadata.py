@@ -29,3 +29,5 @@ class Metadata(dict):
 
         # 解析包含的类别（有序）
         self["categories"] = fr.get("categories", []) or []
+        if len(self["categories"]) == 0:
+            self["categories"].append('Default')

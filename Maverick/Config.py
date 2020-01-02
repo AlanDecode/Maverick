@@ -69,13 +69,6 @@ class Config(object):
 
     valine = {
         "enable": False,
-        "appId": "",
-        "appKey": "",
-        "notify": "false",
-        "visitor": "false",
-        "recordIP": "false",
-        "serverURLs": None,
-        "placeholder": "Just go go~"
     }
 
     head_addon = ""

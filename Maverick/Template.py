@@ -43,6 +43,7 @@ class Template:
         self._env.globals['Router'] = Router(self._config)
         self._env.globals['fp'] = filterPlaceholders
         self._env.globals['maverick_version'] = Maverick_Version
+        self._env.globals['json'] = json
 
     def render(self):
         """Override this

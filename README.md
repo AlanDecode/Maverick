@@ -271,18 +271,14 @@ Checkout more options [here](http://dplayer.js.org/guide.html).
 
 ## Comments
 
-Maverick has built-in [Valine](https://valine.js.org/) support, please refer to  [Valine Docs](https://valine.js.org/en/quickstart.html) for more information. You need to fill `valine` entry in configuration file with these options:
+Maverick has built-in [Valine](https://valine.js.org/) support, please refer to  [Valine Docs](https://valine.js.org/en/quickstart.html) for more information. You need to fill `valine` entry in configuration file with at least these options:
 
 ```python
 valine = {
     "enable": True,
+    "el": '#vcomments',
     "appId": "<your appId here>",
     "appKey": "<your appKey here>",
-    "notify": "false",
-    "visitor": "false",
-    "recordIP": "false",
-    "serverURLs": None,
-    "placeholder": "Just go go~"
 }
 ```
 

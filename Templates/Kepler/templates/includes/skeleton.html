@@ -86,9 +86,10 @@
                     <div id="content">{% block content %}{% endblock content %}</div>
                     <footer>
                         <span>Copyright © {{ moment.now().format('%Y') }} {{ fp(config.author) }}</span>
-                        <span>Powered by <a no-style href="https://github.com/AlanDecode/Maverick" target="_blank">Maverick & Kepler</a>
+                        {% block valine_counter %}{% endblock valine_counter %}
+                        {% if config.footer_addon != '' -%}
                             <span class="addon">{{ config.footer_addon }}</span>
-                        </span>
+                        {%- endif %}
                     </footer>
                 </div>
                 {% block content_sidebar %}{% endblock content_sidebar %}

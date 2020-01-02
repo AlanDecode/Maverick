@@ -78,13 +78,9 @@ social_links = [
 
 valine = {
     "enable": False,
+    "el": '#vcomments',
     "appId": "",
-    "appKey": "",
-    "notify": "false",
-    "visitor": "false",
-    "recordIP": "false",
-    "serverURLs": None,
-    "placeholder": "Just go go~"
+    "appKey": ""
 }
 
 head_addon = r"""

@@ -11,6 +11,9 @@ from Maverick.Utils import unify_joinpath, safe_read
 
 g_translation = None
 
+def match_route(current_route, route):
+    if route == current_route:
+        return 'current'
 
 def tr(str, locale="english"):
     """translation support

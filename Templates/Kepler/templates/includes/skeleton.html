@@ -66,7 +66,7 @@
                     {% if len(config.nav) > 0 %}
                     <section class="sidebar-nav">
                         {% for item in config.nav %}
-                            <div><span><a href="{{ fp(item['url']) }}">{{ fp(item['name']) }}</a></span></div>
+                            <div class="{{ match_route(current_route, fp(item['url'])) }}" ><span><a href="{{ fp(item['url']) }}">{{ fp(item['name']) }}</a></span></div>
                         {% endfor %}
                     </section>
                     {% endif %}

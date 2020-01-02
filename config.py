@@ -6,7 +6,7 @@
 site_prefix = "/"
 source_dir = "./test_src/"
 build_dir = "./test_dist/"
-template = "Kepler"
+template = "Galileo"
 index_page_size = 10
 archives_page_size = 30
 fetch_remote_imgs = False
@@ -30,7 +30,7 @@ language = 'english'
 background_img = '${static_prefix}bg/The_Great_Wave_off_Kanagawa.jpg'
 external_links = [
     {
-        "name": "AlanDecode/Maverick",
+        "name": "Maverick",
         "url": "https://github.com/AlanDecode/Maverick",
         "brief": "🏄‍ Go My Own Way."
     },

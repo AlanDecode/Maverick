@@ -12,7 +12,7 @@ from Maverick.Template import Template
 from Maverick.Utils import unify_joinpath, copytree, logged_func, safe_write, gen_hash
 from Maverick.Content import Content, ContentList, group_by_category, group_by_tagname
 from Maverick.Config import Config
-from .utils import tr
+from .utils import tr, match_route
 
 
 def render(conf, posts: ContentList, pages: ContentList):
@@ -60,6 +60,7 @@ class Kepler(Template):
         self._env.globals['tr'] = tr
         self._env.globals['len'] = len
         self._env.globals['build_sidebar'] = self.build_sidebar
+        self._env.globals['match_route'] = match_route
         self.gather_meta()
         self.build_content_tree()
 
@@ -180,11 +181,12 @@ class Kepler(Template):
             current_list = self._posts[page * page_size:min((page+1)*page_size,
                                                             total_contents)]
 
-            _, local_path = self._router.gen("index", "", page+1)
+            current_route, local_path = self._router.gen("index", "", page+1)
             local_path += "index.html"
 
             template = self._env.get_template("index.html")
             output = template.render(
+                current_route=current_route,
                 content_list=current_list,
                 current_page=page+1,
                 max_pages=total_pages)
@@ -212,11 +214,12 @@ class Kepler(Template):
                     content_prev = self._posts[index_prev]
 
             meta = content.meta
-            _, local_path = self._router.gen_by_meta(meta)
+            current_route, local_path = self._router.gen_by_meta(meta)
             local_path += "index.html"
 
             template = self._env.get_template("post.html")
             output = template.render(
+                current_route=current_route,
                 content=content,
                 content_prev=content_prev,
                 content_next=content_next
@@ -233,11 +236,12 @@ class Kepler(Template):
             content_prev = self._posts[index +
                                        1] if index < total_pages-1 else None
 
-            _, local_path = self._router.gen_by_content(content)
+            current_route, local_path = self._router.gen_by_content(content)
             local_path += "index.html"
 
             template = self._env.get_template("page.html")
             output = template.render(
+                current_route=current_route,
                 content=content,
                 content_prev=content_prev,
                 content_next=content_next
@@ -257,11 +261,12 @@ class Kepler(Template):
                 self._posts[page *
                             page_size:min((page+1)*page_size, total_contents)]
 
-            _, local_path = self._router.gen("archives", "", page+1)
+            current_route, local_path = self._router.gen("archives", "", page+1)
             local_path += "index.html"
 
             template = self._env.get_template("archives.html")
             output = template.render(
+                current_route=current_route,
                 content_list=current_list,
                 current_page=page+1,
                 max_pages=total_pages)
@@ -272,13 +277,14 @@ class Kepler(Template):
         for tag in self._tags:
             posts = self._posts.re_group(group_by_tagname(tag))
 
-            _, local_path = self._router.gen("tag", tag, 1)
+            current_route, local_path = self._router.gen("tag", tag, 1)
             if not os.path.exists(local_path):
                 os.makedirs(local_path)
             local_path += "index.html"
 
             template = self._env.get_template("tags.html")
             output = template.render(
+                current_route=current_route,
                 tag_name=tag,
                 content_list=posts)
             safe_write(local_path, output)
@@ -299,11 +305,12 @@ class Kepler(Template):
                     }
                     sub_cates.insert(0, cate)
 
-            _, local_path = self._router.gen("category", category, 1)
+            current_route, local_path = self._router.gen("category", category, 1)
             local_path += "index.html"
 
             template = self._env.get_template("categories.html")
             output = template.render(
+                current_route=current_route,
                 cate_name=category,
                 sub_cates = sub_cates,
                 content_list=posts)

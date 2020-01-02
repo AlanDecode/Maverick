@@ -34,6 +34,7 @@ header > .container {
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    overflow-x: auto;
     section {
         height: 100%;
         display: flex;
@@ -82,7 +83,6 @@ header > .container {
             right: 0;
         }
         nav {
-            overflow-x: auto;
             height: 100%;
             display: flex;
             align-items: center;

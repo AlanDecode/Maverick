@@ -141,6 +141,7 @@ main > .container > aside {
     }
     &#toc-container {
         background: #fff;
+        padding-bottom: 24px;
         > span {
             display: block;
             margin-bottom: 1.3rem;
@@ -211,5 +212,9 @@ main > .container > aside {
         .navbar-open & {
             left: 0;
         }
+    }
+
+    .toc-open aside#toc-container {
+        max-height: calc(100vh - 240px);
     }
 }

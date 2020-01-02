@@ -10,8 +10,13 @@
         color: $faded-black-light;
         display: block;
         margin-bottom: 1.5rem;
+        white-space: nowrap;
+        overflow-x: auto;
         span::after {
             content: " / ";
+        }
+        span:last-of-type::after {
+            display: none;
         }
         a.category {
             color: $faded-black-light;

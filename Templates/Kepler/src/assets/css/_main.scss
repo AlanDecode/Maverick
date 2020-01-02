@@ -19,18 +19,27 @@
 
     footer {
         padding-top: 2rem;
-        margin-bottom: 2rem;
+        padding-bottom: 2rem;
         border-top: 2px solid #d4dadf;
         display: flex;
         align-items: center;
         justify-content: space-between;
         color: $textColor-fade;
+        white-space: nowrap;
+        overflow-x: auto;
         * {
             color: inherit;
         }
         > span {
             display: block;
             text-align: center;
+            margin: 0 0.6rem;
+            &:first-of-type {
+                margin-left: 0;
+            }
+            &::last-of-type {
+                margin-right: 0;
+            }
         }
         > span:first-of-type {
             text-align: left;

@@ -1,8 +1,11 @@
 {% extends "includes/skeleton_archive.html" %}
 
-{% block title %}
-    {{ tr('Tag') }}: {{ tag_name }} - {{ fp(config.site_name) }}
-{% endblock title %}
+{% macro seo_title() %}{{ tr('Tag') }}: {{ tag_name }} - {{ fp(config.site_name) }}{% endmacro %}
+{% block title %}{{ seo_title() }}{% endblock title %}
+{% block og_title %}{{ seo_title() }}{% endblock %}
+{% block og_description %}{{ seo_title() }}{% endblock %}
+{% block og_url %}{{ Router.gen_permalink('tag', tag_name, current_page) }}{% endblock %}
+{% block twitter_title %}{{ seo_title() }}{% endblock %}
 
 {% block more_section %}
 

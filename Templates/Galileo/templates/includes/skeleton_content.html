@@ -37,7 +37,7 @@
                 </a>
                 {% endif %}
                 {% if config.valine['enable'] and config.valine['visitor'].lower()=='true' and content.get_meta('comment') %}
-                <span class="leancloud_visitors" id="{{ Router.gen_permalink_by_content(content) }}" data-flag-title="{{ content.meta['title'] }}"> · <i class="leancloud-visitors-count"></i> Views</span>
+                <span class="leancloud_visitors"> · <i class="leancloud-visitors-count"></i> Views</span>
                 {% endif %}
             </span>
             <div class="ga-content_body">

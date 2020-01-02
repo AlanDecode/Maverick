@@ -1,5 +1,11 @@
 {% extends 'includes/skeleton_archive.html' %}
 
+{% block title %}{{ fp(config.site_name) }}{% endblock %}
+{% block og_title %}{{ fp(config.site_name) }}{% endblock %}
+{% block og_description %}{{ fp(config.description) }}{% endblock %}
+{% block og_url %}{{ Router.gen_permalink('index', '', current_page) }}{% endblock %}
+{% block twitter_title %}{{ fp(config.site_name) }}{% endblock %}
+
 {% block page_title %}RECENT POSTS{% endblock page_title %}
 
 {% block pager %}

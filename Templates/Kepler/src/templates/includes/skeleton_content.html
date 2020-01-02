@@ -10,7 +10,7 @@
 <meta name="description" content="{{ content.excerpt }}" />
 <meta property="og:title" content="{{ seo_title(content, config) }}" />
 <meta property="og:description" content="{{ content.excerpt }}" />
-<meta property="og:site_name" content="{{ (config.site_name) }}" />
+<meta property="og:site_name" content="{{ fp(config.site_name) }}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ Router.gen_permalink_by_content(content) }}" />
 <meta property="og:image" content="{{ content.get_meta('banner') }}" />

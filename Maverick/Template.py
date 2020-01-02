@@ -10,6 +10,7 @@ from .Utils import copytree, safe_read, safe_write
 from .Router import Router
 from .Content import ContentList
 from .Cache import dump_log
+from . import Maverick_Version
 
 from jinja2 import Environment, FileSystemLoader
 from feedgen.feed import FeedGenerator
@@ -41,6 +42,7 @@ class Template:
         self._env.globals['config'] = self._config
         self._env.globals['Router'] = Router(self._config)
         self._env.globals['fp'] = filterPlaceholders
+        self._env.globals['maverick_version'] = Maverick_Version
 
     def render(self):
         """Override this

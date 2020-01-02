@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+/**
+* author: 熊猫小A
+*/
+
+@import "css/var";
+@import "css/normalize";
+
+html {
+    font-size: 16px;
+    background: #f5f7f9;
+    font-family: sans-serif;
+}
+
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    max-width: $mainWidth;
+    @media screen and (max-width: $breakSmall) {
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: $breakSmall) {
+    main > .container {
+        padding: 0;
+    }
+}
+
+.card {
+    padding: 12px;
+    border: 1px solid #E6ECF1;
+    margin: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+    border-radius: 4px;
+    line-height: 1.65;
+    * {
+        color: inherit;
+    }
+    time, .meta {
+        color: $textColor-fade;
+        font-size: 12px;
+    }
+    &:not(.no-hover):hover {
+        border-color: $highlightColor;
+        color: $highlightColor;
+    }
+}
+
+.no-bg {
+    background: none!important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: $textColor;
+    > main {
+        flex: 1;
+    }
+    > main > .container {
+        display: flex;
+        position: relative;
+    }
+}
+
+@import "css/yue";
+@import "css/highlight";
+@import "css/dplayer";
+
+@import "css/header";
+@import "css/sidebar";
+@import "css/main";
+.bili-player {
+    width: 100%;
+}

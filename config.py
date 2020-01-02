@@ -6,12 +6,12 @@
 site_prefix = "/"
 source_dir = "./test_src/"
 build_dir = "./test_dist/"
-template = "Galileo"
+template = "Kepler"
 index_page_size = 10
 archives_page_size = 30
 fetch_remote_imgs = False
 enable_jsdelivr = {
-    "enabled": True,
+    "enabled": False,
     "repo": "AlanDecode/Maverick@gh-pages"
 }
 locale = "Asia/Shanghai"

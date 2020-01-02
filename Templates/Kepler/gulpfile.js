@@ -14,15 +14,13 @@ var prefixerOptions = {
     overrideBrowserslist: ['last 2 versions']
 };
 
-
 gulp.task('clean', function () {
-    return del(['assets', 'templates']);
+    return del(['./assets', './templates'], {force: true});
 });
-
 
 // CSS
 gulp.task('css', function () {
-    return gulp.src('./src/assets/css/galileo.scss')
+    return gulp.src('./src/assets/kepler.scss')
         .pipe(sass())
         .pipe(prefix(prefixerOptions))
         .pipe(minify())
@@ -34,8 +32,8 @@ gulp.task('css', function () {
 
 //JS
 gulp.task('js', function () {
-    return gulp.src(['./src/assets/js/PhotoSwipe.js', './src/assets/js/dplayer.js', './src/assets/js/galileo.js'])
-        .pipe(concat('galileo.js'))
+    return gulp.src(['./src/assets/kepler.js'])
+        .pipe(concat('kepler.js'))
         .pipe(uglify())
         .pipe(rev())
         .pipe(gulp.dest('./assets/'))
@@ -50,8 +48,10 @@ gulp.task('md5', function () {
 });
 
 gulp.task('move', function () {
-    return gulp.src(['./src/assets/statics/**/*'], {base: './src/assets/statics/'})
+    gulp.src(['./src/assets/statics/**/*'], {base: './src/assets/statics/'})
         .pipe(gulp.dest('./assets/'));
+    return gulp.src(['./src/misc/**/*'], { base: './src/misc/' })
+        .pipe(gulp.dest('./misc/'));
 });
 
 gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js'), 'md5', 'move'));

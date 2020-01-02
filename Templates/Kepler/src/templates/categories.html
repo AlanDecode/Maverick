@@ -1,0 +1,20 @@
+{% extends 'includes/skeleton_archive.html' %}
+
+{% block page_title %}CATEGORY: {{ cate_name }}{% endblock page_title %}
+
+{% block sidebar %}
+    {{ build_sidebar('category', cate_name) }}
+{% endblock sidebar %}
+
+{% block more_content %}
+{% if len(sub_cates) > 0 %}
+    <section class="sub-cates card-list">
+        {% for cate in sub_cates %}
+        <a class="card" href="{{ cate['permalink'] }}">
+            <span class="meta">CATEGORY</span>
+            <span>{{ cate['title'] }}</span>
+        </a>
+        {% endfor %}
+    </section>
+{% endif %}
+{% endblock more_content %}

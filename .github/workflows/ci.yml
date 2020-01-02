@@ -20,13 +20,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r prod_req.txt
+        make dep
 
     - name: Build
       env:
         site_prefix: https://alandecode.github.io/Maverick/
       run: |
-        python build.py
+        make site
 
     - name: Deploy to GitHub Pages
       uses: docker://peaceiris/gh-pages:v2

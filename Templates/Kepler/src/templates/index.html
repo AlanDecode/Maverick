@@ -1,0 +1,28 @@
+{% extends 'includes/skeleton_archive.html' %}
+
+{% block page_title %}RECENT POSTS{% endblock page_title %}
+
+{% block pager %}
+    <section id="content-pager">
+        {% if current_page > 1 %}
+            <div class="next">
+                <a class="card" href="{{ Router.gen_permalink('index', '', current_page-1) }}">
+                    <span class="meta">Previous</span>
+                    <span>PAGE {{ current_page-1 }}</span>
+                </a>
+            </div>
+        {% endif %}
+        {% if current_page < max_pages %}
+            <div class="prev">
+                <a class="card" href="{{ Router.gen_permalink('index', '', current_page+1) }}">
+                    <span class="meta">Next</span>
+                    <span>PAGE {{ current_page+1 }}</span>
+                </a>
+            </div>
+        {% endif %}
+    </section>
+{% endblock pager %}
+
+{% block sidebar %}
+    {{ build_sidebar() }}
+{% endblock sidebar %}

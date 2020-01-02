@@ -1,0 +1,49 @@
+{% extends 'includes/skeleton.html' %}
+
+{% block head %}
+<title>{% block title %}{% endblock %}</title>
+<meta name="author" content="{{ fp(config.author) }}" />
+<meta name="description" content="{{ fp(config.description) }}" />
+<meta property="og:title" content="{% block og_title %}{% endblock %}" />
+<meta property="og:description" content="{{ fp(config.description) }}" />
+<meta property="og:site_name" content="{{ fp(config.site_name) }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{% block og_url %}{% endblock %}" />
+<meta property="og:image" content="{{ fp(config.site_name) }}" />
+<meta name="twitter:title" content="{% block twitter_title %}{% endblock %}" />
+<meta name="twitter:description" content="{{ fp(config.description) }}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="{{ fp(config.site_logo) }}" />
+{% endblock head %}
+
+{% block content_sidebar %}
+<aside id="toc-container" class="no-scrollbar no-bg"></aside>
+{% endblock content_sidebar %}
+
+{% block bodyclass %}archive{% endblock %}
+
+{% block content %}
+
+    <section>
+        <h1 class="page-title">{% block page_title %}{% endblock page_title %}</h1>
+        <div id="content-list">
+            {% block more_content %}{% endblock more_content %}
+            <section class="card-list">
+                {% for content in content_list %}
+                    <a class="card" href="{{ Router.gen_permalink_by_content(content) }}">
+                        <time>{{ content.meta['date'].format("MMMM DD YYYY") }}</time>
+                        <span>{{ content.get_meta('title') }}</span>
+                    </a>
+                {% endfor %}
+            </section>
+        </div>
+    </section>
+
+    {% block pager %}{% endblock pager %}
+
+    <script>
+        document.body.classList.add('archive');
+        document.body.classList.remove('content');
+    </script>
+
+{% endblock content %}

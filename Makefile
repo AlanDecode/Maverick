@@ -1,14 +1,14 @@
-.PHONY: theme site clean all
+.PHONY: Galileo Kepler site dep
 default: site
 
-theme:
-	cd ./Templates/Galileo && gulp
+Galileo:
+	cd ./Templates/Galileo && make
 
-dep:
+Kepler:
+	cd ./Templates/Kepler && make
+
+dep: prod_req.txt
 	pip install -r prod_req.txt
-	cd ./Templates/Galileo && npm install -g gulp && npm install
 
 site:
 	python build.py
-
-all: theme site

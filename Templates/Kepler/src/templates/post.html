@@ -1,0 +1,5 @@
+{% extends 'includes/skeleton_content.html' %}
+
+{% block sidebar %}
+    {{ build_sidebar('post', content.get_meta('slug')) }}
+{% endblock sidebar %}

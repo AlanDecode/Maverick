@@ -24,7 +24,7 @@ jobs:
 
     - name: Build
       env:
-        site_prefix: https://alandecode.github.io/Maverick/
+        site_prefix: /Maverick/
       run: |
         make site
 

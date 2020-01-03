@@ -48,8 +48,8 @@ class Config(object):
         "name": "<name of template, required>",
         "type": "git",
         "url": "<url of git repo, required>",
-        "branch": "<branch of repo, required>",
-        "tag": "<tag of repo, required, leave empty to use latest>"
+        "branch": "<branch of repo, optional, default to master>",
+        "tag": "<tag of repo, optional, default to latest>"
     }
     """
     template = "Galileo"

@@ -99,7 +99,7 @@ Although Maverick is much simpler than many other generators, it does have a few
 | `site_prefix`             | `"/"`                                           | This value will be used to generate permalinks of your posts. Possible values are like `https://myblog.com/` or `https://me.com/blog/` or  just `/blog/`. If you want to put your site under sub directory, this option can be useful.  Don't forget `/` at the end. |
 | `source_dir`              | `"./test_src/"`                                 | A directory in which Maverick will try to find your articles. This can be any location on your machine, so feel free to store your articles in Dropbox, iCloud Drive or anywhere else to get them synced across multiple devices. |
 | `build_dir`               | `"./test_dist/"`                                | Where Maverick should place all generated HTML files. This can be any location on your machine, just make sure you have write permission on it. |
-| `template`                | `"Galileo"`                                     | Specify the template to render your site. Currently `Galileo` and `Kepler` are available. |
+| `template`                | `"Galileo"`                                     | Specify the template to render your site. Please refer to [Themes](#Themes) for more details. |
 | `index_page_size`         | `10`                                            | The number of posts to show per page, change it to any number you like. |
 | `archives_page_size`      | `30`                                            | The number of posts to show per page in archive list, category list and tag list. |
 | `fetch_remote_imgs`       | `False`                                         | Specify how Maverick will take care of your images. Please refer to [Images and Static Assets](#images-and-static-assets) for more details. |
@@ -269,6 +269,61 @@ You can add more options to it like this:
 ```
 
 Checkout more options [here](http://dplayer.js.org/guide.html).
+
+## Themes
+
+Maverick has two built-in themes, [Galileo](https://github.com/AlanDecode/Maverick-Theme-Galileo) and [Kepler](https://github.com/AlanDecode/Maverick-Theme-Kepler). You can easily switch between theme by setting `template` entry in config.py:
+
+```python
+template = 'Galileo' # or 'Kepler'
+```
+
+For third-party themes, there are three ways to use them.
+
+1. Put third-party theme under `Templates` folder, and set `template` in config.py to theme name. For example, if you have such folder structure:
+
+   ```
+   Templates/
+   	__init__.py
+   	MyTheme/
+   		__init__.py
+   ```
+
+   Then you need to set  `template` in config.py as:
+
+   ```python
+   template = "MyTheme"
+   ```
+
+2. Put third-party theme under any local folder, and set `template` in config.py accordingly. For example, if you have such folder structure:
+
+   ```
+   /some/path/to/MyTheme/
+   	__init__.py
+   ```
+
+   Then you need to set `template` in config.py as:
+
+   ```python
+   template = {
+       "name": "MyTheme",
+       "type": "local",
+       "path": "/some/path/to/MyTheme/" # could also use relatetive path to Maverick
+   }
+   ```
+
+3. Install theme from remote Git repository. If the theme is open sourced by Git, you can configure Maverick to use it directly. For example, you can also use `Kepler` theme like this:
+
+   ```python
+   template = {
+       "name": "Kepler",
+       "type": "git",
+       "url": "https://github.com/AlanDecode/Maverick-Theme-Kepler.git",
+       "branch": "latest"
+   }
+   ```
+
+   Please consult theme provider on install details.
 
 ## Comments
 

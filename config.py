@@ -77,10 +77,13 @@ social_links = [
 ]
 
 valine = {
-    "enable": False,
+    "enable": True,
     "el": '#vcomments',
-    "appId": "",
-    "appKey": ""
+    "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz",
+    "appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU",
+    "visitor": True,
+    "recordIP": True,
+    "placeholder": ""
 }
 
 head_addon = r"""

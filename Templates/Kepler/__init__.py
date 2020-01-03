@@ -8,7 +8,7 @@ import os
 import re
 import json
 import math
-from Maverick.Template import Template
+from Maverick.Template import Template, Pager
 from Maverick.Utils import unify_joinpath, copytree, logged_func, safe_write, gen_hash
 from Maverick.Content import Content, ContentList, group_by_category, group_by_tagname
 from Maverick.Config import Config
@@ -173,22 +173,18 @@ class Kepler(Template):
 
     @logged_func('')
     def build_index(self):
-        page_size = self._config.index_page_size
-        total_contents = len(self._posts)
-        total_pages = math.ceil(total_contents / page_size)
+        pager = Pager(self._posts, self._config.index_page_size)
+        total_pages = pager.get_total_pages()
 
-        for page in range(0, total_pages):
-            current_list = self._posts[page * page_size:min((page+1)*page_size,
-                                                            total_contents)]
-
-            current_route, local_path = self._router.gen("index", "", page+1)
+        for current_page, current_list in pager:
+            current_route, local_path = self._router.gen("index", "", current_page)
             local_path += "index.html"
 
             template = self._env.get_template("index.html")
             output = template.render(
                 current_route=current_route,
                 content_list=current_list,
-                current_page=page+1,
+                current_page=current_page,
                 max_pages=total_pages)
             safe_write(local_path, output)
 
@@ -251,29 +247,25 @@ class Kepler(Template):
 
     @logged_func('')
     def build_archives(self):
-        # paging by config.archives_page_size
-        page_size = self._config.archives_page_size
-        total_contents = len(self._posts)
-        total_pages = math.ceil(total_contents / page_size)
+        pager = Pager(self._posts, self._config.archives_page_size)
+        total_pages = pager.get_total_pages()
 
-        for page in range(0, total_pages):
-            current_list = \
-                self._posts[page *
-                            page_size:min((page+1)*page_size, total_contents)]
-
-            current_route, local_path = self._router.gen("archives", "", page+1)
+        for current_page, current_list in pager:
+            current_route, local_path = self._router.gen("archives", "", current_page)
             local_path += "index.html"
 
             template = self._env.get_template("archives.html")
             output = template.render(
                 current_route=current_route,
                 content_list=current_list,
-                current_page=page+1,
+                current_page=current_page,
                 max_pages=total_pages)
             safe_write(local_path, output)
 
     @logged_func('')
     def build_tags(self):
+        """No paging
+        """
         for tag in self._tags:
             posts = self._posts.re_group(group_by_tagname(tag))
 
@@ -291,6 +283,8 @@ class Kepler(Template):
 
     @logged_func('')
     def build_categories(self):
+        """No paging
+        """
         for category in self._categories:
             posts = self._posts.re_group(group_by_category(category))
 

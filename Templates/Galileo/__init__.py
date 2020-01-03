@@ -4,7 +4,7 @@
 Default theme for Maverick
 """
 
-from Maverick.Template import Template
+from Maverick.Template import Template, Pager
 from Maverick.Content import ContentList, group_by_category, group_by_tagname
 from Maverick.Utils import logged_func, gen_hash, unify_joinpath, copytree
 from Maverick.Utils import safe_write, safe_read
@@ -68,43 +68,33 @@ class Galileo(Template):
 
     @logged_func('')
     def build_index(self):
-        page_size = self._config.index_page_size
-        total_contents = len(self._posts)
-        total_pages = math.ceil(total_contents / page_size)
+        pager = Pager(self._posts, self._config.index_page_size)
+        total_pages = pager.get_total_pages()
 
-        for page in range(0, total_pages):
-            current_list = self._posts[page * page_size:min((page+1)*page_size,
-                                                            total_contents)]
-
-            _, local_path = self._router.gen("index", "", page+1)
+        for current_page, current_list in pager:
+            _, local_path = self._router.gen("index", "", current_page)
             local_path += "index.html"
 
             template = self._env.get_template("index.html")
             output = template.render(
                 content_list=current_list,
-                current_page=page+1,
+                current_page=current_page,
                 max_pages=total_pages)
             safe_write(local_path, output)
 
     @logged_func('')
     def build_archives(self):
-        # paging by config.archives_page_size
-        page_size = self._config.archives_page_size
-        total_contents = len(self._posts)
-        total_pages = math.ceil(total_contents / page_size)
+        pager = Pager(self._posts, self._config.archives_page_size)
+        total_pages = pager.get_total_pages()
 
-        for page in range(0, total_pages):
-            current_list = \
-                self._posts[page *
-                            page_size:min((page+1)*page_size, total_contents)]
-
-            _, local_path = self._router.gen("archives", "", page+1)
+        for current_page, current_list in pager:
+            _, local_path = self._router.gen("archives", "", current_page)
             local_path += "index.html"
 
             template = self._env.get_template("archives.html")
             output = template.render(
                 content_list=current_list,
-                current_page=page+1,
+                current_page=current_page,
                 max_pages=total_pages)
             safe_write(local_path, output)
 
@@ -113,24 +103,18 @@ class Galileo(Template):
         for tag in self._tags:
             posts = self._posts.re_group(group_by_tagname(tag))
 
-            page_size = self._config.archives_page_size
-            total_pages = math.ceil(len(posts) / page_size)
+            pager = Pager(posts, self._config.archives_page_size)
+            total_pages = pager.get_total_pages()
 
-            for page in range(0, total_pages):
-                current_list = \
-                    posts[page * page_size:min(
-                        (page+1)*page_size, len(posts))]
-
-                _, local_path = self._router.gen("tag", tag, page+1)
-                if not os.path.exists(local_path):
-                    os.makedirs(local_path)
+            for current_page, current_list in pager:
+                _, local_path = self._router.gen("tag", tag, current_page)
                 local_path += "index.html"
 
                 template = self._env.get_template("tags.html")
                 output = template.render(
                     tag_name=tag,
                     content_list=current_list,
-                    current_page=page+1,
+                    current_page=current_page,
                     max_pages=total_pages)
                 safe_write(local_path, output)
 
@@ -139,22 +123,18 @@ class Galileo(Template):
         for category in self._categories:
             posts = self._posts.re_group(group_by_category(category))
 
-            page_size = self._config.archives_page_size
-            total_pages = math.ceil(len(posts) / page_size)
+            pager = Pager(posts, self._config.archives_page_size)
+            total_pages = pager.get_total_pages()
 
-            for page in range(0, total_pages):
-                current_list = \
-                    posts[page * page_size:min(
-                        (page+1)*page_size, len(posts))]
-
-                _, local_path = self._router.gen("category", category, page+1)
+            for current_page, current_list in pager:
+                _, local_path = self._router.gen("category", category, current_page)
                 local_path += "index.html"
 
                 template = self._env.get_template("categories.html")
                 output = template.render(
                     cate_name=category,
                     content_list=current_list,
-                    current_page=page+1,
+                    current_page=current_page,
                     max_pages=total_pages)
                 safe_write(local_path, output)
 

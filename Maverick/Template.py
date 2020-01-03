@@ -20,6 +20,7 @@ import os
 import inspect
 import json
 import shutil
+import math
 
 
 def render(conf, posts, pages):
@@ -122,7 +123,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
                 .replace(r'{{priority}}', '0.5')
         safe_write(
             unify_joinpath(self._config.build_dir, 'sitemap.xml'),
-                template.replace(r'{{output}}', output))
+            template.replace(r'{{output}}', output))
 
     @logged_func('')
     def _build_static(self):
@@ -152,3 +153,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         self._build_static()
         self._build_feed()
         self._build_sitemap()
+
+
+class Pager:
+    def __init__(self, content_list: ContentList, page_size: int):
+        self._list = content_list
+        self._page_size = page_size
+        self._current_page = 0
+
+    def __next__(self):
+        self._current_page += 1
+
+        if self._current_page < 1 or self._current_page > self.get_total_pages():
+            raise StopIteration
+
+        return self._current_page, self.get_page(self._current_page)
+
+    def __iter__(self):
+        self._current_page = 0
+        return self
+
+    def get_total_contents(self):
+        return len(self._list)
+
+    def get_total_pages(self):
+        return math.ceil(len(self._list) / self._page_size)
+
+    def get_page(self, page: int):
+        """get contents in `index`-th page
+        """
+        if page < 1 or page > self.get_total_pages():
+            return ContentList()
+
+        return self._list[
+            (page-1)*self._page_size : min(page*self._page_size, len(self._list))]

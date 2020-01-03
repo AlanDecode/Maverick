@@ -7,6 +7,8 @@ import codecs
 import hashlib
 import chardet
 import json
+import stat
+import subprocess
 from .Config import g_conf
 from .Router import Router
 from enum import Enum
@@ -26,6 +28,12 @@ class Color(Enum):
 def print_color(text: str, fg: Color = Color.BLACK.value, end='\n'):
     print('\033[%sm%s\033[0m' % (fg, text), end=end)
 
+def run(command, cwd):
+    with subprocess.Popen(command, cwd=cwd, shell=True) as ret:
+        ret.wait()
+        if ret.returncode != 0:
+            ret.kill()
+            raise BaseException
 
 def logged_func(delim='\n'):
     def inner(func):
@@ -45,6 +53,17 @@ def copytree(src, dst, syamlinks=False, ignore=None):
             shutil.copytree(s, d, syamlinks, ignore)
         else:
             shutil.copy2(s, d)
+
+
+def force_rmtree(top):
+    for root, dirs, files in os.walk(top, topdown=False):
+        for name in files:
+            filename = os.path.join(root, name)
+            os.chmod(filename, stat.S_IWUSR)
+            os.remove(filename)
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
+    os.rmdir(top)
 
 
 def log_start(message, delim):

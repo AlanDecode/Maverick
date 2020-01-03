@@ -34,13 +34,26 @@ class Config(object):
     source_dir = "./test_src/"
     build_dir = "./test_dist/"
 
-    # to use theme in another local folder, set:
-    # template = {
-    #     "name": "<name of template>",
-    #     "type": "local",
-    #     "path": "<path to template>"
-    # }
+    """Config theme for Maverick
+    
+    to use theme in another local folder, set:
+    template = {
+        "name": "<name of template, required>",
+        "type": "local",
+        "path": "<path to template, required>"
+    }
+    
+    to use theme from a remote git repo, set:
+    template = {
+        "name": "<name of template, required>",
+        "type": "git",
+        "url": "<url of git repo, required>",
+        "branch": "<branch of repo, required>",
+        "tag": "<tag of repo, required, leave empty to use latest>"
+    }
+    """
     template = "Galileo"
+
     index_page_size = 10
     archives_page_size = 30
     fetch_remote_imgs = False

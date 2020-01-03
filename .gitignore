@@ -2,6 +2,7 @@ cached_imgs
 tmp
 temp
 test_dist
+devconf.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

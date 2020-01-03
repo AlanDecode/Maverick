@@ -13,9 +13,13 @@ import shutil
 import functools
 import pathlib
 
-from .Utils import logged_func, print_color, Color, unify_joinpath
+from .Utils import logged_func, print_color, Color, unify_joinpath, force_rmtree, run
 from .Content import Content, ContentList
 from .Config import Config
+
+
+class TemplateError(BaseException):
+    pass
 
 
 class Builder:
@@ -31,6 +35,90 @@ class Builder:
                 shutil.rmtree(self._config.build_dir)
             except BaseException as e:
                 print(e)
+
+    @logged_func()
+    def setup_theme(self):
+        """Setup theme in this method.
+
+        1. handle sys.path for local theme
+        2. clone from remote for git theme
+        3. install deps for theme
+        """
+        template = ''
+        template_dep_file = ''
+
+        def clone_remote_theme(config: dict):
+            repo_dir = os.path.abspath('./Templates/' + config['name'])
+            if os.path.exists(repo_dir):
+                force_rmtree(repo_dir)
+
+            repo_url = config['url']
+            repo_branch = config.get('branch', 'master')
+            repo_tag = config.get('tag', '')
+
+            def safe_run(command, cwd):
+                try:
+                    run(command, cwd)
+                except:
+                    raise TemplateError('Cannot fetch theme from '+repo_url)
+
+            safe_run('git clone -b %s %s %s' %
+                     (repo_branch, repo_url, repo_dir), './')
+            if repo_tag != '':
+                safe_run('git checkout %s' & repo_tag, repo_dir)
+
+        if type(self._config.template) == str:
+            """check for local theme, handle fallback for Galileo and Kepler,
+            since they are built-in themes.
+            """
+            built_in_themes = ['Kepler', 'Galileo']
+            if not os.path.exists(unify_joinpath('./Templates', self._config.template)):
+                if self._config.template in built_in_themes:
+                    clone_remote_theme({
+                        "name": self._config.template,
+                        "type": "git",
+                        "url": "https://github.com/AlanDecode/Maverick-Theme-%s.git" % self._config.template,
+                        "branch": "latest"
+                    })
+                    template = '.'.join(['Templates', self._config.template])
+                    template_dep_file = './Templates/%s/requirements.txt' % self._config.template
+                else:
+                    raise TemplateError(
+                        'Can not found local theme '+self._config.template)
+            else:
+                template = '.'.join(['Templates', self._config.template])
+                template_dep_file = './Templates/%s/requirements.txt' % self._config.template
+
+        elif type(self._config.template) == dict:
+            if self._config.template['type'] == 'local':
+                local_dir = os.path.abspath(self._config.template['path'])
+                if not os.path.exists(local_dir):
+                    raise TemplateError(
+                        'Can not found local theme '+self._config.template['name'])
+                else:
+                    sys.path.append(os.path.dirname(local_dir))
+                    template = self._config.template['name']
+                    template_dep_file = unify_joinpath(
+                        local_dir, 'requirements.txt')
+            elif self._config.template['type'] == 'git':
+                clone_remote_theme(self._config.template)
+                template = '.'.join(
+                    ['Templates', self._config.template['name']])
+                template_dep_file = './Templates/%s/requirements.txt' % self._config.template['name']
+
+        else:
+            raise TemplateError('Invalid template config',
+                                str(self._config.template))
+
+        # handle deps for theme
+        if os.path.exists(template_dep_file) and os.path.isfile(template_dep_file):
+            try:
+                run('pip install -r %s' % template_dep_file, '.')
+            except:
+                raise TemplateError('Can not install dependencies for theme.')
+
+        from importlib import import_module
+        self._template = import_module(template)
 
     def build_all(self):
         """Init building
@@ -80,20 +168,7 @@ class Builder:
                                              Content.cmp_by_date),
                                          reverse=True))
 
-        # render all by template
-        template = ''
-        if type(self._config.template) == str:
-            template = ".".join(["Templates", self._config.template])
-        elif type(self._config.template) == dict:
-            if self._config.template['type'] == 'local':
-                sys.path.append(os.path.dirname(
-                    os.path.abspath(self._config.template['path'])))
-                template = self._config.template['name']
-        else:
-            template = 'Templates.Galileo'
-
-        from importlib import import_module
-        template = import_module(template)
-        template.render(self._config, self._posts, self._pages)
+        self.setup_theme()
+        self._template.render(self._config, self._posts, self._pages)
 
         print_color('\nAll done, enjoy.', Color.GREEN.value)

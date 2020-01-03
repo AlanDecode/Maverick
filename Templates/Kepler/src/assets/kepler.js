@@ -113,7 +113,7 @@ var initPage = function (refresh) {
 
     if (refresh) {
         renderMathInElement(document.body, mathOpts);
-        if (typeof initValine == 'function' && $('#comments').length) {
+        if (typeof initValine == 'function') {
             initValine();
         }
     }

@@ -86,14 +86,8 @@ valine = {
     "placeholder": ""
 }
 
-head_addon = r"""
-<!-- Content here will be added before </head>. -->
-"""
+head_addon = ''
 
-footer_addon = r"""
-<!-- Content here will be added to <footer> tag.-->
-"""
+footer_addon = ''
 
-body_addon = r"""
-<!-- Content here will be added before </body>. -->
-"""
+body_addon = ''

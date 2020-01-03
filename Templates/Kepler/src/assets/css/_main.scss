@@ -33,19 +33,16 @@
         > span {
             display: block;
             text-align: center;
+            flex: 1;
             margin: 0 0.6rem;
-            &:first-of-type {
-                margin-left: 0;
-            }
-            &::last-of-type {
-                margin-right: 0;
-            }
         }
         > span:first-of-type {
             text-align: left;
+            margin-left: 0;
         }
         > span:last-of-type {
             text-align: right;
+            margin-right: 0;
         }
     }
 

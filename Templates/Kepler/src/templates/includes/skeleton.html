@@ -134,6 +134,16 @@
         </script>
         <script defer src="{{ Router.gen_static_file_prefix() }}assets/auto-render.min.js" onload="renderMathInElement(document.body, mathOpts);"></script>
 
+        {% if config.valine['enable'] %}
+            <script>
+                var initValine = function () {
+                    if ($('#comments').length) {
+                        new Valine({{ json.dumps(config.valine) }});
+                    }
+                }
+            </script>
+            <script async src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>
+        {% endif %}
         {{ fp(config.body_addon) }}
     </body>
 </html>

@@ -3,6 +3,7 @@
 from .Metadata import Metadata
 from .Markdown import Markdown
 from .Utils import safe_read
+from .Config import g_conf
 
 import re
 import yaml
@@ -64,7 +65,7 @@ class Content():
     @property
     def parsed(self):
         if self._parsed is None:
-            self._parsed = Markdown(self)
+            self._parsed = Markdown(self, g_conf.parse_alt_as_figcaption)
         return self._parsed
 
     def get_meta(self, key, default=None):

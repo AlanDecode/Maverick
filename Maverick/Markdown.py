@@ -33,7 +33,6 @@ class DPlayerLexer(object):
         })
 
 
-
 class AutotagLexer(object):
     """Block level aututag
 
@@ -193,13 +192,15 @@ class MyRenderer(mistune.Renderer, MathRendererMixin):
         return highlight(code, lexer, formatter)
 
     def image(self, src, title, text):
-        figcaption = title or text
+        figcaption = title or ''
+        if figcaption == '' and self.options['parse_alt_as_figcaption']:
+            figcaption = text or ''
 
         ret = cache_img(src, os.path.dirname(self.options['md_path']))
         src = ret['src']
         attr = 'data-width="%s" data-height="%s"' % (
             ret['width'], ret['height'])
-        
+
         style = ''
         if ret['width'] != -1 and ret['height'] != -1:
             style = 'style="flex: %s"' % str(ret['width'] * 50 / ret['height'])
@@ -239,8 +240,9 @@ class MyInlineLexer(mistune.InlineLexer, RubyLexer, LinkcardLexer, InlineFootnot
     pass
 
 
-def Markdown(content):
-    ren = MyRenderer(escape=False, md_path=content.get_meta("path"))
+def Markdown(content, parse_alt_as_figcaption=True):
+    ren = MyRenderer(escape=False, md_path=content.get_meta("path"),
+                     parse_alt_as_figcaption=parse_alt_as_figcaption)
 
     inline = MyInlineLexer(ren)
     inline.enable_ruby()
@@ -250,7 +252,7 @@ def Markdown(content):
 
     block = MyBlockLexer()
     block.enable_autotag()
-    block.enable_dplayer() # should be before autotag
+    block.enable_dplayer()  # should be before autotag
     block.enable_math()
 
     return MyMarkdown(renderer=ren, block=block, inline=inline)(content.text)

@@ -64,6 +64,9 @@ class Config(object):
     locale = "Asia/Shanghai"
     category_by_folder = False
 
+    # For Markdown parser
+    parse_alt_as_figcaption = True
+
     # For site
     site_name = ""
     site_logo = ""

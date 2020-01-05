@@ -54,17 +54,19 @@ class Template:
     @logged_func('')
     def _build_feed(self):
         router = Router(self._config)
+        fp = filterPlaceholders
+
         fg = FeedGenerator()
         fg.id(self._config.site_prefix)
         fg.title(self._config.site_name)
         fg.author({
-            'name': self._config.author,
-            'email': self._config.email
+            'name': fp(self._config.author),
+            'email': fp(self._config.email)
         })
         fg.link(href=self._config.site_prefix, rel='alternate')
-        fg.logo(self._config.site_logo)
-        fg.subtitle(self._config.description)
-        fg.language(self._config.language)
+        fg.logo(fp(self._config.site_logo))
+        fg.subtitle(fp(self._config.description))
+        fg.language(fp(self._config.language))
         fg.lastBuildDate(moment.now().locale(self._config.locale).date)
         fg.pubDate(moment.now().locale(self._config.locale).date)
 
@@ -77,8 +79,8 @@ class Template:
             fe.pubDate(meta['date'].date)
             fe.author({
                 'name': meta['author'],
-                'uri': self._config.author_homepage,
-                'email': self._config.email
+                'uri': fp(self._config.author_homepage),
+                'email': fp(self._config.email)
             })
             fe.content(post.parsed)
 

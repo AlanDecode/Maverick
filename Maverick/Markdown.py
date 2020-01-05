@@ -11,6 +11,21 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
 
 
+class ParserHook(dict):
+    """Save hook as key-value pairW
+    """
+
+    def add_hook(self, hook: str, callback: callable):
+        self[hook] = callback
+
+    def remove_hook(self, hook: str):
+        if hook in self.keys():
+            self.pop(hook)
+
+
+g_hooks = ParserHook()
+
+
 class DPlayerLexer(object):
     """Before Autotag
 
@@ -192,27 +207,27 @@ class MyRenderer(mistune.Renderer, MathRendererMixin):
         return highlight(code, lexer, formatter)
 
     def image(self, src, title, text):
-        figcaption = title or ''
-        if figcaption == '' and self.options['parse_alt_as_figcaption']:
-            figcaption = text or ''
 
-        ret = cache_img(src, os.path.dirname(self.options['md_path']))
-        src = ret['src']
-        attr = 'data-width="%s" data-height="%s"' % (
-            ret['width'], ret['height'])
+        # cache image, parse its width and height
+        image_meta = cache_img(src, os.path.dirname(self.options['md_path']))
+        image_meta['title'] = title
+        image_meta['alt'] = text
 
-        style = ''
-        if ret['width'] != -1 and ret['height'] != -1:
-            style = 'style="flex: %s"' % str(ret['width'] * 50 / ret['height'])
+        def default_image(image):
+            figcaption = image['title'] or ''
+            if figcaption == '' and self.options['parse_alt_as_figcaption']:
+                figcaption = image['alt'] or ''
 
-        if ret['width'] == -1 or ret['height'] == -1:
-            attr += " size-undefined"
+            attr = 'data-width="%s" data-height="%s"' % (
+                image['width'], image['height'])
 
-        if figcaption != "":
-            figcaption = '<figcaption>%s</figcaption>' % figcaption
+            if figcaption != "":
+                figcaption = '<figcaption>%s</figcaption>' % figcaption
 
-        return '<figure class="pswp-item" %s %s><img src="%s" alt="%s" />%s</figure>' \
-            % (style, attr, src, text, figcaption)
+            return '<figure><img %s src="%s" alt="%s" />%s</figure>' \
+                % (attr, image['src'], image['alt'], figcaption)
+
+        return g_hooks.get('output_image', default_image)(image_meta)
 
     def autotag(self, tagname, text):
         return '<div class="%s">%s</div>' % (tagname, text)

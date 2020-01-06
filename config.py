@@ -27,7 +27,6 @@ author_homepage = "https://www.imalan.cn"
 description = "This is Maverick, Theme Galileo."
 key_words = ["Maverick", "AlanDecode", "Galileo", "blog"]
 language = 'english'
-background_img = '${static_prefix}bg/The_Great_Wave_off_Kanagawa.jpg'
 external_links = [
     {
         "name": "Maverick",

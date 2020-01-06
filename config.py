@@ -81,8 +81,7 @@ valine = {
     "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz",
     "appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU",
     "visitor": True,
-    "recordIP": True,
-    "placeholder": ""
+    "recordIP": True
 }
 
 head_addon = ''

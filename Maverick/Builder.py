@@ -46,9 +46,10 @@ class Builder:
         """
         template = ''
         template_dep_file = ''
+        mvrk_path = self._config.mvrk_path
 
         def clone_remote_theme(config: dict):
-            repo_dir = os.path.abspath('./Templates/' + config['name'])
+            repo_dir = os.path.abspath(mvrk_path + '/Templates/' + config['name'])
             if os.path.exists(repo_dir):
                 force_rmtree(repo_dir)
 
@@ -63,7 +64,7 @@ class Builder:
                     raise TemplateError('Cannot fetch theme from '+repo_url)
 
             safe_run('git clone -b %s %s %s' %
-                     (repo_branch, repo_url, repo_dir), './')
+                     (repo_branch, repo_url, repo_dir), mvrk_path)
             if repo_tag != '':
                 safe_run('git checkout %s' & repo_tag, repo_dir)
 
@@ -72,7 +73,7 @@ class Builder:
             since they are built-in themes.
             """
             built_in_themes = ['Kepler', 'Galileo']
-            if not os.path.exists(unify_joinpath('./Templates', self._config.template)):
+            if not os.path.exists(unify_joinpath(mvrk_path + '/Templates', self._config.template)):
                 if self._config.template in built_in_themes:
                     clone_remote_theme({
                         "name": self._config.template,
@@ -81,13 +82,13 @@ class Builder:
                         "branch": "latest"
                     })
                     template = '.'.join(['Templates', self._config.template])
-                    template_dep_file = './Templates/%s/requirements.txt' % self._config.template
+                    template_dep_file = mvrk_path + '/Templates/%s/requirements.txt' % self._config.template
                 else:
                     raise TemplateError(
                         'Can not found local theme '+self._config.template)
             else:
                 template = '.'.join(['Templates', self._config.template])
-                template_dep_file = './Templates/%s/requirements.txt' % self._config.template
+                template_dep_file = mvrk_path + '/Templates/%s/requirements.txt' % self._config.template
 
         elif type(self._config.template) == dict:
             if self._config.template['type'] == 'local':
@@ -96,7 +97,7 @@ class Builder:
                     raise TemplateError(
                         'Can not found local theme '+self._config.template['name'])
                 else:
-                    sys.path.append(os.path.dirname(local_dir))
+                    sys.path.insert(0, os.path.dirname(local_dir))
                     template = self._config.template['name']
                     template_dep_file = unify_joinpath(
                         local_dir, 'requirements.txt')
@@ -104,7 +105,7 @@ class Builder:
                 clone_remote_theme(self._config.template)
                 template = '.'.join(
                     ['Templates', self._config.template['name']])
-                template_dep_file = './Templates/%s/requirements.txt' % self._config.template['name']
+                template_dep_file = mvrk_path + '/Templates/%s/requirements.txt' % self._config.template['name']
 
         else:
             raise TemplateError('Invalid template config',

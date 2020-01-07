@@ -4,14 +4,14 @@
 
 import os
 import sys
-
+from pathlib import Path
 
 class Config(object):
     def update_fromfile(self, filepath=None):
         if filepath is None:
             return
 
-        sys.path.append(os.path.dirname(filepath))
+        sys.path.insert(0, os.path.dirname(filepath))
 
         name, _ = os.path.splitext(os.path.basename(filepath))
         module = __import__(name)
@@ -31,7 +31,8 @@ class Config(object):
 
     # For Maverick
     site_prefix = "/"
-    source_dir = "./test_src/"
+    mvrk_path = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
+    source_dir = mvrk_path + '/test_src/'
     build_dir = "./test_dist/"
 
     """Config theme for Maverick

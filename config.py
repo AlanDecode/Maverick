@@ -4,8 +4,6 @@
 
 # For Maverick
 site_prefix = "/"
-source_dir = "./test_src/"
-build_dir = "./test_dist/"
 template = "Galileo"
 index_page_size = 10
 archives_page_size = 30

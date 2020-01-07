@@ -137,17 +137,18 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         # copy images to build_dir/archives/assets
         dist_dir = unify_joinpath(
             self._config.build_dir, 'archives/assets')
-        src_dir = './cached_imgs'
+        src_dir = unify_joinpath(self._config.mvrk_path, 'cached_imgs')
         if not os.path.exists(dist_dir):
             os.makedirs(dist_dir)
 
+        tmp_dir = unify_joinpath(self._config.mvrk_path, 'tmp')
         cached_imgs = set(json.loads(
-            safe_read('./tmp/used_imgs.json') or '[]'))
+            safe_read(unify_joinpath(tmp_dir, 'used_imgs.json')) or '[]'))
         for img in cached_imgs:
             shutil.copy(unify_joinpath(src_dir, img), dist_dir)
 
-        if os.path.exists('./tmp'):
-            shutil.rmtree('./tmp')
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir)
 
     def __call__(self):
         self.render()

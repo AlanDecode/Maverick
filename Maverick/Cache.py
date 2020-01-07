@@ -49,9 +49,9 @@ def cache_img(src, base_path):
     global g_used_imgs
     global g_sizeinfo_cache
 
-    json_path = './tmp/used_imgs.json'
-    sizeinfo_json_path = './cached_imgs/sizeinfo.json'
-    cache_dir = './cached_imgs'
+    json_path = unify_joinpath(g_conf.mvrk_path, 'tmp/used_imgs.json')
+    sizeinfo_json_path = unify_joinpath(g_conf.mvrk_path, 'cached_imgs/sizeinfo.json')
+    cache_dir = unify_joinpath(g_conf.mvrk_path, 'cached_imgs')
 
     if g_used_imgs is None:
         g_used_imgs = set(json.loads(safe_read(json_path) or '[]'))
@@ -186,8 +186,8 @@ def dump_log():
     global g_used_imgs
     global g_sizeinfo_cache
 
-    json_path = './tmp/used_imgs.json'
-    sizeinfo_json_path = './cached_imgs/sizeinfo.json'
+    json_path = unify_joinpath(g_conf.mvrk_path, 'tmp/used_imgs.json')
+    sizeinfo_json_path = unify_joinpath(g_conf.mvrk_path, 'cached_imgs/sizeinfo.json')
 
     safe_write(json_path, json.dumps(list(g_used_imgs or []), indent=1))
     safe_write(sizeinfo_json_path, json.dumps(

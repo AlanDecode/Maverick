@@ -214,9 +214,7 @@ class MyRenderer(mistune.Renderer, MathRendererMixin):
         image_meta['alt'] = text
 
         def default_image(image):
-            figcaption = image['title'] or ''
-            if figcaption == '' and self.options['parse_alt_as_figcaption']:
-                figcaption = image['alt'] or ''
+            figcaption = image['title'] or image['alt'] or ''
 
             attr = 'data-width="%s" data-height="%s"' % (
                 image['width'], image['height'])
@@ -255,9 +253,8 @@ class MyInlineLexer(mistune.InlineLexer, RubyLexer, LinkcardLexer, InlineFootnot
     pass
 
 
-def Markdown(content, parse_alt_as_figcaption=True):
-    ren = MyRenderer(escape=False, md_path=content.get_meta("path"),
-                     parse_alt_as_figcaption=parse_alt_as_figcaption)
+def Markdown(content):
+    ren = MyRenderer(escape=False, md_path=content.get_meta("path"))
 
     inline = MyInlineLexer(ren)
     inline.enable_ruby()

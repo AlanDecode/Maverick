@@ -65,7 +65,7 @@ class Content():
     @property
     def parsed(self):
         if self._parsed is None:
-            self._parsed = Markdown(self, g_conf.parse_alt_as_figcaption)
+            self._parsed = Markdown(self)
         return self._parsed
 
     def get_meta(self, key, default=None):

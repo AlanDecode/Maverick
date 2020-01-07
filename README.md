@@ -106,7 +106,6 @@ Although Maverick is much simpler than many other generators, it does have a few
 | `locale`                  | `Asia/Shanghai`                                 | Specify where you are. Valid options are listed [here](https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones). |
 | `enable_jsdelivr`         | {<br />"enabled": False,<br />"repo": ""<br />} | If you host your site on GitHub Pages, this option can enable [jsDelivr](https://www.jsdelivr.com/) as CDN service for all your static files, including JS files, CSS files and images. See `config.py` and preview site for an example. Basically, set `"enabled"` to `True` and set `"repo"` to `<user>/<repo>@<branch>`. |
 | `category_by_folder`      | `False`                                         | Category contents by folder structure rather than front-matter. |
-| `parse_alt_as_figcaption` | `True`                                          | By default, Maverick set  image `title` attribute as `<figcation>` ,  should Maverick treat `alt` attribute as fallback when `title` is unset? |
 
 ### Options for Your Site
 

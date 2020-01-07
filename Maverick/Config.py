@@ -65,7 +65,10 @@ class Config(object):
     locale = "Asia/Shanghai"
     category_by_folder = False
 
-    # For Markdown parser
+    # !DEPRECIATE
+    # This option will be removed in the future
+    # prefer `output_image` hook and template specific config
+    # to control rendering behavior of images
     parse_alt_as_figcaption = True
 
     # For site

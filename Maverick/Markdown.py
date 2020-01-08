@@ -199,12 +199,19 @@ class MyMarkdown(mistune.Markdown):
 
 class MyRenderer(mistune.Renderer, MathRendererMixin):
     def block_code(self, code, lang):
-        if not lang:
+        def fallback():
             return '\n<pre><code>%s</code></pre>\n' % \
                 mistune.escape(code)
-        lexer = get_lexer_by_name(lang, stripall=True)
-        formatter = html.HtmlFormatter()
-        return highlight(code, lexer, formatter)
+
+        if not lang:
+            return fallback()
+
+        try:
+            lexer = get_lexer_by_name(lang, stripall=True)
+            formatter = html.HtmlFormatter()
+            return highlight(code, lexer, formatter)
+        except:
+            return fallback()
 
     def image(self, src, title, text):
 

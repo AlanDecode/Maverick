@@ -17,7 +17,7 @@ Maverick是使用现代Python构建的，目前至少需要** Python 3.5 **，�
 
 ### Install | 安装
 
-克隆藏快：
+克隆仓库：
 
 ```bash
 git clone https://github.com/AlanDecode/Maverick.git ./Maverick && cd ./Maverick

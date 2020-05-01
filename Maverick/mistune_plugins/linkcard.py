@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """LinkCard
-{{Ruby:ルビ}} -> <ruby>Ruby<rp>(</rp><rt>ルビ</rt><rp>)</rp></ruby>
+[name](link)+(image)
 """
 
 import re

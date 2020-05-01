@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "/Maverick/2c8697ae07c782cc87d8efe4de67a52e.json"
+            api: "/Maverick/e88bceb114128e623a5b91e45d312ed3.json"
         }
     </script>
     
@@ -82,7 +82,6 @@
             </span>
             <div class="ga-content_body">
                 <div class="notice">This is an sample article. Typography matters in Maverick.</div><!--more-->
-
 <h2>L2 Heading</h2>
 <h3>L3 Heading</h3>
 <h4>L4 Heading</h4>
@@ -92,10 +91,12 @@
 <p>We are creating a world that all may enter without privilege or prejudice accorded by race, economic power, military force, or station of birth.</p>
 <p>We are creating a world where anyone, anywhere may express his or her beliefs, no matter how singular, without fear of being coerced into silence or conformity.</p>
 <h2>Inline elements</h2>
-<p><strong>Bold</strong>, <ruby>Ruby<rp>(</rp><rt>ルビ</rt><rp>)</rp></ruby>, <em>Italic</em>, <del>Strikethrough</del>, <a href="https://www.imalan.cn">Link</a><sup id="fn_ref_1"><a href="#fn_1">1</a></sup>。</p>
+<p><strong>Bold</strong>, <ruby>Ruby<rp>(</rp><rt>ルビ</rt><rp>)</rp></ruby>, <em>Italic</em>, <del>Strikethrough</del>, <a href="https://www.imalan.cn">Link</a><sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>。</p>
 <h2>Blockquote and nested blockquote</h2>
-<blockquote><p>安得广厦千万间，大庇天下寒士俱欢颜！风雨不动安如山。</p>
-<blockquote><p>呜呼！何时眼前突兀见此屋，吾庐独破受冻死亦足！</p>
+<blockquote>
+<p>安得广厦千万间，大庇天下寒士俱欢颜！风雨不动安如山。</p>
+<blockquote>
+<p>呜呼！何时眼前突兀见此屋，吾庐独破受冻死亦足！</p>
 </blockquote>
 </blockquote>
 <h2>Code</h2>
@@ -128,7 +129,7 @@
 <li>关上冰箱</li>
 </ol>
 <h2>Horizontal rule</h2>
-<hr>
+<hr />
 <h2>Math</h2>
 <p>Inline Math: $m\times n$, math block:</p>
 <p>$$C_{m\times k}=A_{m\times n}\cdot B_{n\times k}$$</p>
@@ -139,30 +140,39 @@
 <div class="photos">
 <figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/b5b8f3a962acc2447a3ca9daec920584.jpeg" /></figure>
 <figure style="flex: 50.03720238095238" ><img width="2690" height="2688" src="/Maverick/archives/assets/0ed318891b203c40182179e963c8d3e4.jpg" /></figure>
-<figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/2d2f3851a0fe67571a88489cda343fe4.jpeg" /></figure></div><div class="photos">
+<figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/2d2f3851a0fe67571a88489cda343fe4.jpeg" /></figure>
+</div><div class="photos">
 <figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/c2e1848b602e8288ede60b99c3a429de.jpeg" /></figure>
 <figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/9d1701e52f4a0e52eb2caf54df463bdd.jpeg" /></figure>
-<figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/d5ed11440357b06f0f093961d3401150.jpeg" /></figure></div><h2>Table</h2>
+<figure style="flex: 75.0" ><img width="4032" height="2688" src="/Maverick/archives/assets/d5ed11440357b06f0f093961d3401150.jpeg" /></figure>
+</div><h2>Table</h2>
 <table>
-<thead><tr>
-<th>header</th>
-<th>header</th>
+<thead>
+<tr>
+  <th>header</th>
+  <th>header</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>cell 1</td>
-<td>cell 2</td>
+  <td>cell 1</td>
+  <td>cell 2</td>
 </tr>
 <tr>
-<td>cell 3</td>
-<td>cell 4</td>
+  <td>cell 3</td>
+  <td>cell 4</td>
 </tr>
 </tbody>
 </table>
 <h2>Link Card</h2>
 <div class="links">
-<a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item">                 <div class="board-thumb"><img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&r=G&d="></div>                 <div class="board-title">AlanDecode</div></a></div><hr><div class="footnotes"><ol><li id="fn_1">Home page for AlanDecode <a no-style href="#fn_ref_1">↩</a></li></ol></div>
+<a style="display:block" target="_blank" href="https://www.imalan.cn" class="board-item">             <div class="board-thumb"><img src="https://secure.gravatar.com/avatar/1741a6eef5c824899e347e4afcbaa75d?s=200&r=G&d="></div>             <div class="board-title">AlanDecode</div></a>
+</div><section class="footnotes">
+<ol>
+<li id="fn-1"><p>Home page for AlanDecode<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+</ol>
+</section>
+
             </div>
         </article>
         <div id="ga-tags">
@@ -198,7 +208,7 @@
     
         <script>
             var initValine = function () {
-                new Valine({"enable": true, "appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU", "recordIP": true, "el": "#vcomments", "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz", "visitor": true});
+                new Valine({"enable": true, "el": "#vcomments", "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz", "recordIP": true, "visitor": true, "appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU"});
             }
         </script>
         <script defer src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>

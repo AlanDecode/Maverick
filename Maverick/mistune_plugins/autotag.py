@@ -16,6 +16,8 @@ def parse_autotag(self, m, state):
     tag, text = m.group(1), m.group(2)
     if tag.lower() == 'dplayer':
         return {'type': 'autotag', 'raw': text, 'params': (tag, )}
+    elif tag.lower() == 'details':
+        return {'type': 'autotag', 'text': text, 'params': (tag, )}
     else:
         return {'type': 'autotag', 'text': text, 'params': (tag, )}
 
@@ -23,6 +25,8 @@ def parse_autotag(self, m, state):
 def render_html_autotag(text, tag):
     if tag == 'dplayer':
         return '<div class="%s" data-url="%s"></div>' % (tag, text)
+    elif tag == 'details':
+        return '<p><details>%s</details></p>' % (text)
     return '<div class="%s">%s</div>' % (tag, text)
 
 

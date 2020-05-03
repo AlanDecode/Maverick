@@ -1,8 +1,8 @@
-![](https://raw.githubusercontent.com/AlanDecode/Maverick/master/banner.png)
-
-English | [简体中文](./README-zh_CN.md)
+# Maverick
 
 [![](https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square)](https://alandecode.github.io/Maverick/) [![Build Status](https://github.com/AlanDecode/Maverick/workflows/Build/badge.svg)](https://github.com/AlanDecode/Maverick/actions) ![](https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square)
+
+English | [简体中文](./README-zh_CN.md)
 
 ## Overview
 

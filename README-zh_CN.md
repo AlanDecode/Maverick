@@ -1,6 +1,6 @@
-![][image-1]
+# Maverick
 
-[![][image-2]][1] [![Build Status][image-3]][2] ![][image-4]
+[![][image-1]][1] [![Build Status][image-2]][2] ![][image-3]
 
 ## Overview | 概述
 
@@ -362,7 +362,6 @@ MIT © [AlanDecode][16].
 [15]:	https://github.com/AlanDecode/Maverick/blob/master/theme-Dev.md
 [16]:	https://github.com/AlanDecode
 
-[image-1]:	https://raw.githubusercontent.com/AlanDecode/Maverick/master/banner.png
-[image-2]:	https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square
-[image-3]:	https://github.com/AlanDecode/Maverick/workflows/Build/badge.svg
-[image-4]:	https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square
+[image-1]:	https://img.shields.io/badge/Preview-GitHub-blue?style=flat-square
+[image-2]:	https://github.com/AlanDecode/Maverick/workflows/Build/badge.svg
+[image-3]:	https://img.shields.io/github/license/AlanDecode/Maverick.svg?style=flat-square

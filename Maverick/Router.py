@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+import urllib
+import urllib.parse
 
 class Router:
     def __init__(self, conf):
@@ -62,6 +63,6 @@ class Router:
             path += "/"
 
         local_path = self.config.build_dir + path
-        permalink = self.config.site_prefix + path
+        permalink = self.config.site_prefix + urllib.parse.quote(path)
 
         return permalink, local_path

@@ -3,6 +3,7 @@ tmp
 temp
 test_dist
 devconf.py
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

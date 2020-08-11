@@ -88,17 +88,8 @@ $$C_{m\times k}=A_{m\times n}\cdot B_{n\times k}$$
 
 ### Photoset
 
-[photos]
-![](./assets/IMG_0073.jpeg)
-![][1]
-![](./assets/IMG_0053.jpeg)
-[/photos]
-
-[photos]
-![](./assets/IMG_0039.jpeg)
-![](./assets/IMG_0051.jpeg)
-![](./assets/IMG_0005.jpeg)
-[/photos]
+![](./assets/IMG_0073.jpeg) ![][1] ![](./assets/IMG_0053.jpeg)
+![](./assets/IMG_0039.jpeg) ![](./assets/IMG_0051.jpeg) ![](./assets/IMG_0005.jpeg)
 
 ## Table
 

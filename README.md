@@ -343,6 +343,10 @@ valine = {
 
 Pull requests are surely welcome. See [theme-Dev.md](https://github.com/AlanDecode/Maverick/blob/master/theme-Dev.md) for documentation on developing a theme for Maverick.
 
+## Credits
+
+Thank [Typlog](https://typlog.com/) for their wonderful work on extended Markdown image syntax.
+
 ## License
 
 MIT © [AlanDecode](https://github.com/AlanDecode).

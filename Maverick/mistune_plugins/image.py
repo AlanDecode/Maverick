@@ -27,7 +27,7 @@ class ImageRenderer(mistune.HTMLRenderer):
             if figcaption != "":
                 figcaption = '<figcaption>%s</figcaption>' % figcaption
 
-            return '<figure><img %s src="%s" alt="%s" />%s</figure>' \
+            return '<figure><img loading="lazy" %s src="%s" alt="%s" />%s</figure>' \
                 % (attr, image['src'], image['alt'], figcaption)
 
         return self.g_hooks.get('output_image', default_image)(image_meta)

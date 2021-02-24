@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 """Maverick
 
 Author: AlanDecode | 熊猫小A

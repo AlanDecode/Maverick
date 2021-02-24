@@ -72,7 +72,7 @@ class Config(object):
     parse_alt_as_figcaption = True
 
     # For site
-    site_name = ""
+    site_name = "Yet Another Maverick Site"
     site_logo = ""
     site_build_date = ""
     author = ""

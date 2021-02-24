@@ -218,19 +218,19 @@ $$C_{m\times k}=A_{m\times n}\cdot B_{n\times k}$$
 
 使用 Markdown 语法插入代码块时只需指定语言，它将自动突出显示：
 
-````
-​```cpp
+
+```cpp
 int main(int argc , char** argv){
     std::cout << "Hello World!\n";
     return 0;
 }
-​
+```
 
 ### Ruby
 
 Type something like this:
 
-````
+```
 I am {{Darth Vader:Your Father}}!
 ```
 

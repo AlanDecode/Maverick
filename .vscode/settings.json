@@ -1,0 +1,16 @@
+{
+  "python.envFile": "${workspaceFolder}/.envrc",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+    "--config=${workspaceFolder}/.flake8_config"
+  ],
+  "python.formatting.provider": "yapf",
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "${workspaceFolder}/.cache/**": true
+  }
+}

@@ -1,8 +1,8 @@
 .PHONY: site dep
 default: site
 
-dep: prod_req.txt
-	pip install -r prod_req.txt
+dep: requirements.txt
+	pip install -r requirements.txt
 
 site:
 	python build.py

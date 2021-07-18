@@ -26,7 +26,7 @@ git clone https://github.com/AlanDecode/Maverick.git ./Maverick && cd ./Maverick
 安装依赖：
 
 ```bash
-pip install -r prod_req.txt
+pip install -r requirements.txt
 ```
 
 如果出现错误，请验证你 Python 和 pip 的版本。然后编辑默认的配置文件：

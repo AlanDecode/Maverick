@@ -27,7 +27,7 @@ git clone https://github.com/AlanDecode/Maverick.git ./Maverick && cd ./Maverick
 Install dependencies:
 
 ```bash
-pip install -r prod_req.txt
+pip install -r requirements.txt
 ```
 
 If error occurs, please verify your Python and pip version. Then edit the default configuration file:

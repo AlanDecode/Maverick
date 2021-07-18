@@ -1,0 +1,41 @@
+# Build demo site and update gh-pages branch
+
+name: Build demo
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.5
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.5
+
+    - name: Install dependencies
+      run: |
+        make dep
+
+    - name: Build
+      env:
+        site_prefix: /Maverick/
+      run: |
+        make site
+
+    - name: Deploy to GitHub Pages
+      uses: docker://peaceiris/gh-pages:v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./test_dist
+      with:
+        emptyCommits: false

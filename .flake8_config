@@ -1,0 +1,8 @@
+[flake8]
+# E111, E114: We use 2-space. These rules check indentation is a multiple of four.
+# E251, E124, E125, E126, E129: These rules sometimes contradicts yapf.
+# E501: This checks wrapping at 79 while we wrap at 80.
+# E731: lambda is our friend.
+# W503, W504: Allow line break before or binary operators until we can enforce line break before through yapf.
+ignore = E111,E114,E251,E124,E125,E126,E129,E501,E731,W503,W504
+exclude = .git, build, setup.py

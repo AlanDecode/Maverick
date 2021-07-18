@@ -1,0 +1,7 @@
+[style]
+based_on_style = google
+
+allow_split_before_dict_value = False
+indent_dictionary_value = true
+indent_width = 2
+split_penalty_import_names = 300

@@ -6,3 +6,5 @@ Pillow
 feedgen
 pyyaml
 chardet
+flake8
+yapf

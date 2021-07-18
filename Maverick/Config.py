@@ -6,6 +6,7 @@ import os
 import sys
 from pathlib import Path
 
+
 class Config(object):
     def update_fromfile(self, filepath=None):
         if filepath is None:
@@ -36,14 +37,14 @@ class Config(object):
     build_dir = "./test_dist/"
 
     """Config theme for Maverick
-    
+
     to use theme in another local folder, set:
     template = {
         "name": "<name of template, required>",
         "type": "local",
         "path": "<path to template, required>"
     }
-    
+
     to use theme from a remote git repo, set:
     template = {
         "name": "<name of template, required>",

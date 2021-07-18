@@ -6,7 +6,8 @@ on:
       - master
 
 jobs:
-  build:
+
+  build_py35:
 
     runs-on: ubuntu-latest
 
@@ -28,11 +29,99 @@ jobs:
       run: |
         make site
 
-    - name: Deploy to GitHub Pages
-      uses: docker://peaceiris/gh-pages:v2
-      env:
-        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./test_dist
+    # - name: Deploy to GitHub Pages
+    #   uses: docker://peaceiris/gh-pages:v2
+    #   env:
+    #     PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+    #     PUBLISH_BRANCH: gh-pages
+    #     PUBLISH_DIR: ./test_dist
+    #   with:
+    #     emptyCommits: false
+
+  build_py36:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v1
       with:
-        emptyCommits: false
+        python-version: 3.6
+
+    - name: Install dependencies
+      run: |
+        make dep
+
+    - name: Build
+      env:
+        site_prefix: /Maverick/
+      run: |
+        make site
+
+  build_py37:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        make dep
+
+    - name: Build
+      env:
+        site_prefix: /Maverick/
+      run: |
+        make site
+
+  build_py38:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        make dep
+
+    - name: Build
+      env:
+        site_prefix: /Maverick/
+      run: |
+        make site
+
+  build_py39:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        make dep
+
+    - name: Build
+      env:
+        site_prefix: /Maverick/
+      run: |
+        make site

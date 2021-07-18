@@ -23,8 +23,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        make dep
+        pip3 install -r requirements.txt
 
     - name: Build
       run: |
-        make site
+        python3 mvrk.py --config demo_src/config.py --source_dir ./demo_src/ --build_dir ./build_py37/

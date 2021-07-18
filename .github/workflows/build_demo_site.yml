@@ -23,19 +23,19 @@ jobs:
 
     - name: Install dependencies
       run: |
-        make dep
+        pip3 install -r requirements.txt
 
     - name: Build
       env:
         site_prefix: /Maverick/
       run: |
-        make site
+        python3 mvrk.py --config demo_src/config.py --source_dir ./demo_src/ --build_dir ./dist/
 
     - name: Deploy to GitHub Pages
       uses: docker://peaceiris/gh-pages:v2
       env:
         PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./test_dist
+        PUBLISH_DIR: ./dist
       with:
         emptyCommits: false

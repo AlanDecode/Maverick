@@ -19,7 +19,7 @@
     <script>
         var ExSearchConfig = {
             root: "",
-            api: "/Maverick/1ef580e6ff8ed6c794053004f648d64e.json"
+            api: "/Maverick/02261f994bdceefbcfeab187371423e0.json"
         }
     </script>
     
@@ -86,7 +86,7 @@
 <p>Maverick is build with modern Python, currently at least <strong>Python 3.5</strong> is required, make sure you have it installed on your machine.</p><h3>Install</h3>
 <p>Clone this repository:</p><div class="highlight"><pre><span></span>git clone https://github.com/AlanDecode/Maverick.git ./Maveric <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ./Maveric
 </pre></div>
-<p>Install all dependencies:</p><div class="highlight"><pre><span></span>pip install -r prod_req.txt
+<p>Install all dependencies:</p><div class="highlight"><pre><span></span>pip install -r requirements.txt
 </pre></div>
 <p>If error occurs, please verify your Python and pip version. Then edit the default configuration file:</p><div class="highlight"><pre><span></span>vi ./config.py
 </pre></div>
@@ -130,7 +130,7 @@
     
         <script>
             var initValine = function () {
-                new Valine({"appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU", "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz", "enable": true, "el": "#vcomments", "visitor": true, "recordIP": true});
+                new Valine({"appKey": "lFaCWkd4xCs0Ng5UWs1eHNwU", "appId": "IKRAfuPq0zrz6Wfje8ahHAIP-gzGzoHsz", "visitor": true, "recordIP": true, "el": "#vcomments", "enable": true});
             }
         </script>
         <script defer src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js' onload="initValine()"></script>

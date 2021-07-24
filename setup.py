@@ -12,7 +12,7 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'Maverick'
+NAME = 'mvrk'
 DESCRIPTION = '🏄‍ A static blog generator built with Python.'
 URL = 'https://github.com/AlanDecode/Maverick'
 EMAIL = 'zytbuaa1415@gmail.com'

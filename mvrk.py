@@ -17,7 +17,7 @@ def _get_parser() -> argparse.ArgumentParser:
   _parser = argparse.ArgumentParser()
   _parser.add_argument('--config', '-c', required=True, help='Config file path')
   _parser.add_argument('--source_dir', '-s', default='', help='Source dir')
-  _parser.add_argument('--build_dir', '-b', default='./dist', help='Build dir')
+  _parser.add_argument('--build_dir', '-b', default='', help='Build dir')
   return _parser
 
 

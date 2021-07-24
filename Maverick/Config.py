@@ -33,7 +33,7 @@ class Config(object):
   # For Maverick
   site_prefix = '/'
   source_dir = ''
-  build_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk', 'dist')
+  build_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk', 'dist') + '/'
 
   """Config theme for Maverick
 

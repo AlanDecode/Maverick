@@ -18,7 +18,8 @@ from .Cache import dump_log
 from .Content import ContentList
 from .Config import Config
 from .Router import Router
-from .Utils import (filterPlaceholders, unify_joinpath, logged_func, copytree, safe_read, safe_write)
+from .Utils import (filterPlaceholders, unify_joinpath, logged_func, copytree,
+                    safe_read, safe_write)
 
 
 def render(conf, posts, pages):

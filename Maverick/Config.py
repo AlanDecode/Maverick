@@ -59,7 +59,7 @@ class Config(object):
   archives_page_size = 30
   fetch_remote_imgs = False
   enable_jsdelivr = {"enabled": False, "repo": ""}
-  locale = ""
+  locale = "Asia/Shanghai"
   category_by_folder = False
 
   # !DEPRECIATE

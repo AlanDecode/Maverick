@@ -5,13 +5,14 @@
 import os
 import json
 import shutil
+import urllib.request as request
+from urllib.parse import urlparse
+
 from PIL import Image
 from PIL import ImageFile
+
 from .Config import g_conf
 from .Router import Router
-
-from urllib.parse import urlparse
-import urllib.request as request
 from .Utils import (unify_joinpath, print_color, Color, safe_read, safe_write,
                     gen_hash)
 

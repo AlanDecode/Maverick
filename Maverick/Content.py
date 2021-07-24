@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
+import re
+import yaml
 
 from .Metadata import Metadata
 from .Markdown import Markdown
 from .Utils import safe_read
-
-import re
-import yaml
 
 
 def group_by_tagname(tag):

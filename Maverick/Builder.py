@@ -90,7 +90,7 @@ class Builder:
         }
       else:
         raise TemplateError('Can not found local theme {}'.format(
-            {self._config.template}))
+            self._config.template))
 
     # If its remote theme, clone it to disk first
     if template_conf['type'] == 'git':

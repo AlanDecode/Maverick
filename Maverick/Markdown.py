@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """Tweaked Mistune
 """
-
 import mistune
 from mistune.plugins import (plugin_strikethrough, plugin_footnotes,
                              plugin_table, plugin_url)
+
 from .mistune_plugins import (plugin_ruby, plugin_autotag, plugin_linkcard,
                               plugin_inlinefootnote, plugin_mathblock, MyRenderer)
 

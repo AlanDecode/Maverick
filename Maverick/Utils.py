@@ -5,12 +5,14 @@ import re
 import shutil
 import codecs
 import hashlib
-import chardet
 import stat
 import subprocess
+from enum import Enum
+
+import chardet
+
 from .Config import g_conf
 from .Router import Router
-from enum import Enum
 
 
 class Color(Enum):

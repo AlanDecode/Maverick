@@ -3,23 +3,22 @@
 
 All templates should inherit this class, and override `render` method
 """
-
-from .Config import Config
-from .Utils import filterPlaceholders, unify_joinpath, logged_func
-from .Utils import copytree, safe_read, safe_write
-from .Router import Router
-from .Content import ContentList
-from .Cache import dump_log
-from . import Maverick_Version
-
-from jinja2 import Environment, FileSystemLoader
-from feedgen.feed import FeedGenerator
-import moment
-import os
 import inspect
 import json
-import shutil
 import math
+import os
+import shutil
+
+import moment
+from jinja2 import Environment, FileSystemLoader
+from feedgen.feed import FeedGenerator
+
+from . import Maverick_Version
+from .Cache import dump_log
+from .Content import ContentList
+from .Config import Config
+from .Router import Router
+from .Utils import (filterPlaceholders, unify_joinpath, logged_func, copytree, safe_read, safe_write)
 
 
 def render(conf, posts, pages):

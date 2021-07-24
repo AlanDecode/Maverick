@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-
-
 import moment
+
 from .Config import g_conf
 
 

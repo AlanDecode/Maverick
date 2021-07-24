@@ -18,7 +18,7 @@ URL = 'https://github.com/AlanDecode/Maverick'
 EMAIL = 'zytbuaa1415@gmail.com'
 AUTHOR = 'AlanDecode'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '1.2.0'
+VERSION = '1.2.1'
 
 # Requirements for Maverick
 REQUIRED = []

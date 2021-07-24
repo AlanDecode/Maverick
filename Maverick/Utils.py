@@ -108,8 +108,8 @@ def gen_hash(str):
   return h1.hexdigest()
 
 
-def unify_joinpath(left, right):
-  path = os.path.join(left, right)
+def unify_joinpath(left, right, *args):
+  path = os.path.join(left, right, *args)
   return path.replace('\\', '/')
 
 

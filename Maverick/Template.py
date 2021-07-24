@@ -134,11 +134,11 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     # copy images to build_dir/archives/assets
     dist_dir = unify_joinpath(self._config.build_dir, 'archives/assets')
-    src_dir = unify_joinpath(self._config.mvrk_path, 'cached_imgs')
+    src_dir = self._config._cache_dir
     if not os.path.exists(dist_dir):
       os.makedirs(dist_dir)
 
-    tmp_dir = unify_joinpath(self._config.mvrk_path, 'tmp')
+    tmp_dir = unify_joinpath(self._config._cache_dir, 'tmp')
     cached_imgs = set(
         json.loads(
             safe_read(unify_joinpath(tmp_dir, 'used_imgs.json')) or '[]'))

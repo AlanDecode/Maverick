@@ -49,10 +49,9 @@ def cache_img(src, base_path):
   global g_used_imgs
   global g_sizeinfo_cache
 
-  json_path = unify_joinpath(g_conf.mvrk_path, 'tmp/used_imgs.json')
-  sizeinfo_json_path = unify_joinpath(g_conf.mvrk_path,
-                                      'cached_imgs/sizeinfo.json')
-  cache_dir = unify_joinpath(g_conf.mvrk_path, 'cached_imgs')
+  json_path = unify_joinpath(g_conf._cache_dir, 'tmp', 'used_imgs.json')
+  sizeinfo_json_path = unify_joinpath(g_conf._cache_dir, 'sizeinfo.json')
+  cache_dir = g_conf._cache_dir
 
   if g_used_imgs is None:
     g_used_imgs = set(json.loads(safe_read(json_path) or '[]'))
@@ -96,8 +95,7 @@ def cache_img(src, base_path):
   src_md5 = gen_hash(src)
 
   # find image in cache dir
-  if not os.path.exists(cache_dir):
-    os.makedirs(cache_dir)
+  os.makedirs(cache_dir, exist_ok=True)
   cached_imgs = [name for name in os.listdir(cache_dir)]
   for name in cached_imgs:
     if name.split('.')[0].lower() == src_md5.lower():  # in cache dir
@@ -173,9 +171,8 @@ def dump_log():
   global g_used_imgs
   global g_sizeinfo_cache
 
-  json_path = unify_joinpath(g_conf.mvrk_path, 'tmp/used_imgs.json')
-  sizeinfo_json_path = unify_joinpath(g_conf.mvrk_path,
-                                      'cached_imgs/sizeinfo.json')
+  json_path = unify_joinpath(g_conf._cache_dir, 'tmp', 'used_imgs.json')
+  sizeinfo_json_path = unify_joinpath(g_conf._cache_dir, 'sizeinfo.json')
 
   safe_write(json_path, json.dumps(list(g_used_imgs or []), indent=1))
   safe_write(sizeinfo_json_path, json.dumps(g_sizeinfo_cache or {}, indent=1))

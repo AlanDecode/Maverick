@@ -33,20 +33,20 @@ pip install -r requirements.txt
 If error occurs, please verify your Python and pip version. Then edit the default configuration file:
 
 ```bash
-vi ./config.py
+vi ./demo_src/config.py
 ```
 
 For now let's use the default settings. Type this command in your terminal:
 
 ```bash
-python ./build.py
+python3 mvrk.py --config ./demo_src/config.py --source_dir ./demo_src/ --build_dir ./dist/
 ```
 
-...and a sample static site is generated in `test_dist` folder! You can then upload them to GitHub Pages or any other server. 
+...and a sample static site is generated in `dist` folder! You can then upload them to GitHub Pages or any other server.
 
 ### Generate your own site
 
-By default, Maverick searches all `.md` files recursively under `test_src` folder, so put your Markdown files in it and run `python ./build.py` then everything you need will be in `test_dist` folder. Maverick uses so-called `YAML frontmatter` to get meta data of your articles, if you have tried Hexo or Jekyll, you should already be familiar with it; if you don't, let's look into it now.
+By default, Maverick searches all `.md` files recursively under `demo_src` folder, so put your Markdown files in it and run above command then everything you need will be in `dist` folder. Maverick uses so-called `YAML frontmatter` to get meta data of your articles, if you have tried Hexo or Jekyll, you should already be familiar with it; if you don't, let's look into it now.
 
 ## File arrangement and `frontmatter`
 
@@ -279,24 +279,9 @@ Maverick has two built-in themes, [Galileo](https://github.com/AlanDecode/Maveri
 template = 'Galileo' # or 'Kepler'
 ```
 
-For third-party themes, there are three ways to use them.
+For third-party themes, there are two ways to use them.
 
-1. Put third-party theme under `Templates` folder, and set `template` in config.py to theme name. For example, if you have such folder structure:
-
-   ```
-   Templates/
-   	__init__.py
-   	MyTheme/
-   		__init__.py
-   ```
-
-   Then you need to set  `template` in config.py as:
-
-   ```python
-   template = "MyTheme"
-   ```
-
-2. Put third-party theme under any local folder, and set `template` in config.py accordingly. For example, if you have such folder structure:
+1. Put third-party theme under any local folder, and set `template` in config.py accordingly. For example, if you have such folder structure:
 
    ```
    /some/path/to/MyTheme/
@@ -309,11 +294,11 @@ For third-party themes, there are three ways to use them.
    template = {
        "name": "MyTheme",
        "type": "local",
-       "path": "/some/path/to/MyTheme/" # could also use relatetive path to Maverick
+       "path": "/some/path/to/MyTheme/"
    }
    ```
 
-3. Install theme from remote Git repository. If the theme is open sourced by Git, you can configure Maverick to use it directly. For example, you can also use `Kepler` theme like this:
+2. Install theme from remote Git repository. If the theme is open sourced by Git, you can configure Maverick to use it directly. For example, you can also use `Kepler` theme like this:
 
    ```python
    template = {

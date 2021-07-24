@@ -32,20 +32,20 @@ pip install -r requirements.txt
 如果出现错误，请验证你 Python 和 pip 的版本。然后编辑默认的配置文件：
 
 ```bash
-vi ./config.py
+vi ./demo_src/config.py
 ```
 
 现在，让我们使用默认设置。 在终端中键入以下命令：
 
 ```bash
-python ./build.py
+python3 mvrk.py --config ./demo_src/config.py --source_dir ./demo_src/ --build_dir ./dist/
 ```
 
-...在 `test_dist` 文件夹中生成了一个示例静态站点！ 你可以把它们上传到 GitHub Pages 或者其他的服务器。
+...在 `dist` 文件夹中生成了一个示例静态站点！ 你可以把它们上传到 GitHub Pages 或者其他的服务器。
 
 ### Generate your own site | 生成自己的网站
 
-默认情况下, Maverick 递归搜索 `test_src` 文件夹下所有的 `.md` 文件, 所以将你的 Markdown 文件放在这，并运行 `python ./build.py`。 静态网页文件将在 `test_dist` 文件夹中生成。 Maverick 使用被称为 `YAML frontmatter` 来获得文章元数据，如果你使用过 Hexo 或者 Jekyll, 你应当非常熟悉他们;如果你对他们不熟悉，请继续往下看。
+默认情况下, Maverick 递归搜索 `demo_src` 文件夹下所有的 `.md` 文件, 所以将你的 Markdown 文件放在这里然后运行上面的命令。 静态网页文件将在 `dist` 文件夹中生成。 Maverick 使用被称为 `YAML frontmatter` 来获得文章元数据，如果你使用过 Hexo 或者 Jekyll, 你应当非常熟悉他们;如果你对他们不熟悉，请继续往下看。
 
 ## File arrangement and `frontmatter`
 
@@ -278,24 +278,9 @@ Maverick has two built-in themes, [Galileo](https://github.com/AlanDecode/Maveri
 template = 'Galileo' # or 'Kepler'
 ````
 
-对于第三方主题，有三种使用方式。
+对于第三方主题，有两种使用方式。
 
-1. 将第三方主题放在 `Templates` 文件夹下，然后在 config.py 将 `template` 设置为主题名称。例如，如果您具有这样的文件结构：
-
-```
-Templates/
-	__init__.py
-	MyTheme/
-		__init__.py
-```
-
-   你需要在 config.py 文件中将 `template` 设置为下面这样：
-
-```python
-template = "MyTheme"
-```
-
-2. 将第三方主题放在任何本地文件夹下，然后在config.py中设置 `template`。 例如，如果您具有这样的文件夹结构：
+1. 将第三方主题放在任何本地文件夹下，然后在config.py中设置 `template`。 例如，如果您具有这样的文件夹结构：
 ```
 /some/path/to/MyTheme/
 	__init__.py
@@ -311,8 +296,7 @@ template = {
 }
 ```
 
-
-3. 从远程Git存储库安装主题。 如果主题是Git开源的，则可以配置Maverick直接使用它。 例如，您还可以像这样使用 `Kepler` 主题：
+2. 从远程Git存储库安装主题。 如果主题是Git开源的，则可以配置Maverick直接使用它。 例如，您还可以像这样使用 `Kepler` 主题：
 
 ```python
 template = {

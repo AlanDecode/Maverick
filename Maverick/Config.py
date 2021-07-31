@@ -8,6 +8,14 @@ import sys
 
 class Config(object):
 
+  def __getattribute__(self, name: str):
+    attr = object.__getattribute__(self, name)
+    if name == 'site_prefix' and attr == '':
+      attr = '/'
+    if name == ('site_prefix', 'build_dir') and not attr.endswith('/'):
+      attr += '/'
+    return attr
+
   def update_fromfile(self, filepath=None):
     if filepath is None:
       return
@@ -33,8 +41,8 @@ class Config(object):
   # For Maverick
   site_prefix = '/'
   source_dir = ''
-  build_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk', 'dist') + '/'
-
+  build_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk',
+                           'dist') + '/'
   """Config theme for Maverick
 
     to use theme in another local folder, set:
@@ -97,7 +105,8 @@ class Config(object):
   # Where to put all cache
   _cache_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk', 'cache')
   # Where to put downloaded theme
-  _template_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk', 'templates')
+  _template_dir = os.path.join(os.path.expanduser('~'), '.cache', 'mvrk',
+                               'templates')
 
 
 g_conf = Config()

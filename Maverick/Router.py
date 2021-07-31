@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+
 import urllib
 import urllib.parse
 
@@ -64,7 +66,7 @@ class Router:
     if len(routes):
       path += "/"
 
-    local_path = self.config.build_dir + path
+    local_path = os.path.join(self.config.build_dir, path)
     permalink = self.config.site_prefix + urllib.parse.quote(path)
 
     return permalink, local_path
